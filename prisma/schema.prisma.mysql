@@ -1,0 +1,209 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Invoice {
+  id           Int           @id @default(autoincrement())
+  companyId    Int
+  monthlyFeeId Int?
+  amountCents  Int
+  dueDay       Int
+  dueDate      DateTime
+  periodYear   Int
+  periodMonth  Int
+  status       InvoiceStatus @default(PENDING)
+  paidAt       DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  isFuture     Boolean       @default(false)
+  company      Company       @relation(fields: [companyId], references: [id])
+  monthlyFee   MonthlyFee?   @relation(fields: [monthlyFeeId], references: [id])
+
+  @@index([status, dueDate])
+  @@index([companyId])
+  @@index([monthlyFeeId], map: "Invoice_monthlyFeeId_fkey")
+}
+
+model User {
+  id             Int       @id @default(autoincrement())
+  name           String?
+  email          String    @unique
+  password       String
+  role           Role      @default(SUBSCRIBER)
+  createdAt      DateTime  @default(now())
+  cpf            String?   @unique
+  phoneNumber    String?
+  csCompanies    Company[] @relation("CsCompanies")
+  ownedCompanies Company[] @relation("OwnerCompanies")
+  soldCompanies  Company[] @relation("SellerCompanies")
+  Company        Company[]
+  payments       Payment[]
+  sales          Sale[]
+  tasksAssigned  Task[]
+}
+
+model Company {
+  id                 Int          @id @default(autoincrement())
+  name               String
+  responsible        String?
+  email              String?
+  phone              String?
+  whatsapp           String?
+  address            String?
+  city               String?
+  state              String?
+  contractUrl        String?      @db.Text
+  contractFilename   String?      @db.VarChar(255)
+  contractUploadedAt DateTime?
+  zipCode            String?
+  cnpj               String?
+  notes              String?      @db.Text
+  createdAt          DateTime     @default(now())
+  ownerId            Int
+  sellerId           Int?
+  csId               Int?
+  userId             Int?
+  website            String?      @db.VarChar(255)
+  cs                 User?        @relation("CsCompanies", fields: [csId], references: [id])
+  owner              User         @relation("OwnerCompanies", fields: [ownerId], references: [id])
+  seller             User?        @relation("SellerCompanies", fields: [sellerId], references: [id])
+  User               User?        @relation(fields: [userId], references: [id])
+  invoices           Invoice[]
+  monthlyFees        MonthlyFee[]
+  payments           Payment[]
+  tasks              Task[]
+
+  @@index([csId], map: "Company_csId_fkey")
+  @@index([ownerId], map: "Company_ownerId_fkey")
+  @@index([sellerId], map: "Company_sellerId_fkey")
+  @@index([userId], map: "Company_userId_fkey")
+}
+
+model MonthlyFee {
+  id          Int       @id @default(autoincrement())
+  companyId   Int
+  amountCents Int
+  dueDay      Int
+  dueDate     DateTime?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  Invoice     Invoice[]
+  company     Company   @relation(fields: [companyId], references: [id])
+  Payment     Payment[]
+
+  @@index([companyId], map: "MonthlyFee_companyId_fkey")
+}
+
+model Sale {
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  description String
+  amountCents Int
+  createdAt   DateTime  @default(now())
+  payments    Payment[]
+  user        User      @relation(fields: [userId], references: [id])
+
+  @@index([userId], map: "Sale_userId_fkey")
+}
+
+model Payment {
+  id           Int           @id @default(autoincrement())
+  userId       Int?
+  status       PaymentStatus @default(PENDING)
+  createdAt    DateTime      @default(now())
+  amountCents  Int
+  companyId    Int?
+  method       PaymentMethod @default(PIX)
+  monthlyFeeId Int?
+  saleId       Int?
+  type         PaymentType   @default(VENDA)
+  company      Company?      @relation(fields: [companyId], references: [id])
+  monthlyFee   MonthlyFee?   @relation(fields: [monthlyFeeId], references: [id])
+  sale         Sale?         @relation(fields: [saleId], references: [id])
+  User         User?         @relation(fields: [userId], references: [id])
+
+  @@index([companyId], map: "Payment_companyId_fkey")
+  @@index([monthlyFeeId], map: "Payment_monthlyFeeId_fkey")
+  @@index([saleId], map: "Payment_saleId_fkey")
+  @@index([userId], map: "Payment_userId_fkey")
+}
+
+model Task {
+  id                 Int          @id @default(autoincrement())
+  title              String
+  description        String?      @db.Text
+  companyId          Int
+  assigneeId         Int?
+  status             TaskStatus   @default(ABERTA)
+  priority           TaskPriority @default(MEDIA)
+  dueDate            DateTime?
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+  attachmentFilename String?      @db.VarChar(255)
+  attachmentMime     String?      @db.VarChar(255)
+  attachmentUrl      String?      @db.Text
+  finishedAt         DateTime?
+  startedAt          DateTime?
+  lastResumeAt       DateTime?
+  pausedAt           DateTime?
+  totalTimeWorked    Int          @default(0)
+  assignee           User?        @relation(fields: [assigneeId], references: [id])
+  company            Company      @relation(fields: [companyId], references: [id])
+
+  @@index([companyId, status])
+  @@index([assigneeId])
+  @@index([dueDate])
+  @@index([startedAt])
+  @@index([finishedAt])
+}
+
+enum InvoiceStatus {
+  PENDING
+  PAID
+  OVERDUE
+  CANCELED
+}
+
+enum PaymentMethod {
+  PIX
+  BOLETO
+  CARTAO
+  DINHEIRO
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+}
+
+enum PaymentType {
+  MENSALIDADE
+  VENDA
+}
+
+enum Role {
+  SUBSCRIBER
+  EDITOR
+  ADMIN
+}
+
+enum TaskStatus {
+  ABERTA
+  EM_ANDAMENTO
+  EM_TESTE
+  CONCLUIDA
+  ATRASADA
+  CANCELADA
+}
+
+enum TaskPriority {
+  BAIXA
+  MEDIA
+  ALTA
+}

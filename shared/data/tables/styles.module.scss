@@ -1,0 +1,160 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dragHandle {
+  color: #6c757d;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 12px;
+  cursor: grab;
+  transition: all 0.2s ease;
+  user-select: none;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.dragHandle:hover {
+  color: #2196f3;
+  background-color: rgba(33, 150, 243, 0.1);
+  transform: scale(1.1);
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+.draggingRow {
+  opacity: 0.6 !important;
+  background-color: #fff3e0 !important;
+  border: 2px dashed #ff9800 !important;
+  transform: rotate(2deg) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.draggingRow td {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.dropTarget {
+  background-color: #e3f2fd !important;
+  border: 2px dashed #2196f3 !important;
+  transform: scale(1.02);
+  box-shadow: inset 0 0 10px rgba(33, 150, 243, 0.3);
+}
+
+.categoryName {
+  display: flex;
+  align-items: center;
+  min-height: 45px;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.categoryName strong {
+  margin-right: 8px;
+}
+
+.reorderButton {
+  margin-right: 10px;
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: grab;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.reorderButton:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.reorderButton:active {
+  cursor: grabbing;
+  background-color: #e9ecef;
+}
+
+.alertUnsaved {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: linear-gradient(45deg, #fff3cd, #ffeaa7);
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  color: #856404;
+  animation: pulse 2s infinite;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.headerActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Estilos para melhor experiência de drag */
+.table tbody tr {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.table tbody tr:hover:not(.draggingRow):not(.dropTarget) {
+  background-color: #f8f9fa;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table tbody tr:hover .dragHandle {
+  color: #2196f3;
+  background-color: rgba(33, 150, 243, 0.1);
+}
+
+/* Melhoria visual para as badges */
+.badge {
+  font-size: 0.75em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Animação para mudança de posição */
+@keyframes moveEffect {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(5px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.table tbody tr.moved {
+  animation: moveEffect 0.5s ease-out;
+}

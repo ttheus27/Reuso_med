@@ -1,0 +1,546 @@
+.page {
+    padding: 0.5rem;
+}
+
+.card {
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background-color: #111214;
+}
+
+.cardHeader {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.cardBody {
+    padding: 1rem 1rem 1.5rem;
+}
+
+.cardBody:has(.kanbanBoard) {
+    padding: 0.75rem;
+    overflow: hidden;
+}
+
+.subtleMeta {
+    margin-top: 0.15rem;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.pillGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    min-width: 180px;
+}
+
+.pill {
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 120px;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.pillTitle {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.pillValue {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.pillValueDanger {
+    color: #ff6b6b;
+}
+
+/* estado vazio */
+.emptyState {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.emptyEmoji {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.emptyTitle {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.emptyText {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* tabela */
+.tableWrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    margin-bottom: 0;
+    font-size: 0.86rem;
+    vertical-align: middle;
+}
+
+.table :global(thead th) {
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.table :global(tbody tr:hover) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.stickyTh {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #111214;
+}
+
+/* badges de prioridade / status */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+/* prioridade */
+.badgePriorityHigh {
+    background: rgba(255, 107, 107, 0.12);
+    color: #ff6b6b;
+    border-color: rgba(255, 107, 107, 0.4);
+}
+
+.badgePriorityMedium {
+    background: rgba(255, 193, 7, 0.12);
+    color: #ffc107;
+    border-color: rgba(255, 193, 7, 0.4);
+}
+
+.badgePriorityLow {
+    background: rgba(0, 200, 83, 0.12);
+    color: #00c853;
+    border-color: rgba(0, 200, 83, 0.4);
+}
+
+/* status */
+.badgeStatusOpen {
+    background: rgba(0, 123, 255, 0.1);
+    color: #7ab8ff;
+    border-color: rgba(0, 123, 255, 0.4);
+}
+
+.badgeStatusLate {
+    background: rgba(255, 68, 68, 0.12);
+    color: #ff4444;
+    border-color: rgba(255, 68, 68, 0.4);
+}
+
+.badgeStatusDone {
+    background: rgba(40, 167, 69, 0.15);
+    color: #5cd68a;
+    border-color: rgba(40, 167, 69, 0.5);
+}
+
+@media (max-width: 767.98px) {
+    .cardBody {
+        padding-inline: 0.75rem;
+    }
+
+    .pill {
+        min-width: 110px;
+    }
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.headerTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.headerTitleBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.newTaskButton {
+    white-space: nowrap;
+}
+
+.headerBottom {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filtersRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex: 1 1 0;
+    min-width: 260px;
+}
+
+.searchInput {
+    flex: 2 1 200px;
+    max-width: 360px;
+}
+
+.filterSelect {
+    flex: 1 1 150px;
+    min-width: 150px;
+}
+
+.sortDirButton {
+    flex: 0 0 auto;
+}
+
+/* Wrapper do autocomplete */
+.autocompleteWrapper {
+    position: relative;
+}
+
+/* Caixa dropdown */
+.autocompleteBox {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    background: #1c1c1c; /* fundo escuro */
+    border: 1px solid rgba(255, 193, 7, 0.4); /* amarelo suave */
+    border-radius: 0.4rem;
+
+    margin-top: 4px;
+    z-index: 3000;
+
+    max-height: 250px;
+    overflow-y: auto;
+
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* cada item */
+.autocompleteItem {
+    padding: 10px 14px;
+    cursor: pointer;
+
+    color: #f1f1f1;
+    font-size: 0.95rem;
+
+    transition: background 0.15s ease;
+}
+
+/* hover bonito */
+.autocompleteItem:hover {
+    background: rgba(255, 193, 7, 0.15); /* amarelo no hover */
+    color: #ffc107;
+}
+
+/* email exibido */
+.autocompleteEmail {
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
+.playPauseButton {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    border: 2px solid #ffc107 !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #ffc107 !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: 2px solid #ffc107 !important;
+        background: rgba(229, 255, 0, 0.12) !important;
+        color: #ffc107 !important;
+        box-shadow: none !important;
+    }
+
+    svg {
+        margin-left: 0px;
+    }
+}
+
+.taskTitleLink {
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    color: #fff; // cor do tema
+
+    &:hover {
+        color: #ffc107;
+    }
+}
+
+.loadingOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+}
+
+.loadingCard {
+    background: #111;
+    border-radius: 12px;
+    padding: 16px 20px;
+    min-width: 220px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Kanban Board */
+.kanbanBoard {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    height: calc(100vh - 350px);
+    min-height: 600px;
+    max-height: calc(100vh - 250px);
+}
+
+.kanbanColumn {
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.kanbanColumnHeader {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.kanbanColumnTitle {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.kanbanColumnCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.kanbanColumnContent {
+    flex: 1;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: background 0.2s ease;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 193, 7, 0.3) transparent;
+}
+
+.kanbanColumnContent::-webkit-scrollbar {
+    width: 8px;
+}
+
+.kanbanColumnContent::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 4px;
+}
+
+.kanbanColumnContent::-webkit-scrollbar-thumb {
+    background: rgba(255, 193, 7, 0.3);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.kanbanColumnContent::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 193, 7, 0.5);
+}
+
+.kanbanColumnContent.kanbanDragOver {
+    background: rgba(255, 193, 7, 0.08);
+    border: 2px dashed rgba(255, 193, 7, 0.4);
+    border-radius: 0.5rem;
+}
+
+/* Kanban Card */
+.kanbanCard {
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    cursor: grab;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.kanbanCard:hover {
+    border-color: rgba(255, 193, 7, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.kanbanCard:active {
+    cursor: grabbing;
+}
+
+.kanbanCardDragging {
+    opacity: 0.5;
+    transform: rotate(3deg);
+}
+
+.kanbanCardHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.kanbanCardTitle {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    flex: 1;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.kanbanCardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.kanbanCardMeta {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.25rem;
+    line-height: 1.4;
+}
+
+.kanbanCardMeta strong {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.kanbanCardActions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.kanbanCardActions :global(.btn) {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+@media (max-width: 1200px) {
+    .kanbanColumn {
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .kanbanBoard {
+        height: calc(100vh - 300px);
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .kanbanBoard {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+        max-height: none;
+    }
+
+    .kanbanColumn {
+        max-width: 100%;
+        min-width: 100%;
+        height: auto;
+        max-height: 500px;
+    }
+
+    .kanbanColumnContent {
+        max-height: 400px;
+    }
+}

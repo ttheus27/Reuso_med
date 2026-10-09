@@ -1,0 +1,135 @@
+/** select 2 **/
+.rmsc .dropdown-container,
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline,
+.time-limit input{
+  border: 1px solid $default-border !important;
+}
+.Select2__menu {
+    z-index: 9 !important;
+}
+.Select2__menu {
+    div,
+    li,
+    .Select2__single-value {
+      &.active,
+      .Select2__option--is-selected {
+        background: $primary !important;
+        color: #fff !important;
+      }
+    }
+}
+.Select2__indicator-separator{
+     display: none;
+}
+.Select2__placeholder{
+  color: $default-text-color !important;
+  opacity: 0.7;
+}
+.Select2__control, .Select2__menu {
+  background-color: $custom-white  !important;
+  border-color: $input-border  !important;
+}
+.rmsc.multi-select .dropdown-container{
+  background-color: $custom-white  !important;
+  border-color: $default-border !important;
+}
+
+.multi-select .dropdown-content {
+  background-color: $custom-white ;
+  border: 1px solid $default-border;
+  
+  div {
+    background-color: $custom-white ;
+
+    label {
+      &:hover,
+      &.selected {
+        background-color: $custom-white ;
+      }
+    }
+  }
+}
+.Select-sm__control--is-disabled {
+  background-color: $custom-white  !important;
+  border-color: $default-border !important;
+  opacity: 0.7;
+}
+.Select2__single-value {
+  color: $default-text-color !important;
+}
+  
+.rmsc .dropdown-content {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+
+[data-theme-color="dark"] {
+  .rmsc {
+    --rmsc-border: rgba(255, 255, 255, 0.1) !important;
+    --rmsc-bg: #232e3c !important;
+  }
+  .rmsc .dropdown-content {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+
+    input {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+
+      &::placeholder {
+        color: #fff;
+      }
+    }
+  }
+}
+[dir="rtl"] {
+  .rmsc .item-renderer input {
+    margin: 0 0 0 5px;
+  }
+}
+.Select2__option--is-selected,
+.Select2__option--is-focused {
+  background: $custom-white  !important;
+  color: $default-text-color !important;
+}
+.Select2__option:hover {  
+  background: $primary !important;
+}
+.rmsc {
+  --rmsc-main: transparent;
+  --rmsc-border: #eff0f6 !important;
+  --rmsc-bg: #fff !important;
+  --rmsc-main: #000;
+  --rmsc-selected: transparent !important;
+  --rmsc-hover: transparent !important;
+}
+/*******new*/
+.react-select__multi-value {
+  background-color: $primary !important;
+}
+
+.passing-option{
+  .react-select__multi-value__remove{
+   display: none;
+  }
+}
+.react-select__multi-value__label {
+  color: #fff !important;
+}
+.Select2__option, .Select2__single-value {
+  img {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50%;
+  }
+}
+
+.Select2__multi-value {
+  background-color: $primary !important;
+  color: #fff !important;
+}
+.Select2__multi-value__label {
+  color: #fff !important;
+}
+.Select2__indicator.Select2__clear-indicator svg {
+  display: none;
+}

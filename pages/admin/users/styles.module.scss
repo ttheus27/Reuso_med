@@ -1,0 +1,15 @@
+.blockButton {
+  margin-left: auto !important;
+}
+
+.blockWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+
+  .blockButton {
+    margin-left: auto !important;
+  }
+}

@@ -1,0 +1,128 @@
+@import '../public/assets/css/styles.css';
+@import 'simplebar-react/dist/simplebar.min.css';
+@import '../public/assets/css/icons.css';
+@import 'react-datepicker/dist/react-datepicker.css';
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+@import 'swiper/css/effect-coverflow';
+@import 'swiper/css/thumbs';
+@import 'swiper/css/effect-flip';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import 'swiper/css/effect-fade';
+@import 'swiper/css/effect-cube';
+@import 'swiper/css/scrollbar';
+@import 'swiper/css/free-mode';
+@import 'react-toastify/dist/ReactToastify.css';
+@import 'react-range-slider-input/dist/style.css';
+@import 'leaflet/dist/leaflet.css';
+@import 'filepond/dist/filepond.min.css';
+@import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+@import 'yet-another-react-lightbox/plugins/thumbnails.css';
+@import 'rodal/lib/rodal.css';
+@import 'gridjs/dist/theme/mermaid.css';
+@import 'suneditor/dist/css/suneditor.min.css';
+@import 'react-color-palette/css';
+@import 'yet-another-react-lightbox/plugins/thumbnails.css';
+@import 'yet-another-react-lightbox/styles.css';
+@import './sidebar.scss';
+
+.primary-custom-card1 {
+    background-image: url(../public/assets/images/png/chatbg.png);
+}
+
+.search-result {
+    position: absolute !important;
+    width: 100%;
+}
+
+.dragula-content {
+    touch-action: none !important;
+}
+
+.breadcrumb .breadcrumb-item.active {
+    color: var(--primary-color) !important;
+    font-weight: 400;
+}
+
+.breadcrumb .breadcrumb-item a {
+    color: var(--text-muted) !important;
+}
+
+.btn-teal {
+    color: #fff !important;
+}
+
+#candlestick-line .apexcharts-series path {
+    stroke: #4ec2f0 !important;
+}
+
+.Quantity-list .Select2__control {
+    width: 100px;
+}
+.product-carousel .carousel-item .img-fluid {
+    max-width: 100%;
+    height: 300px;
+}
+
+.active-task-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 24px;
+    background: #111111;
+    border-bottom: 1px solid rgba(255, 193, 7, 0.35);
+    font-size: 20px;
+    z-index: 5; /* baixo o suficiente pra não brigar com o header */
+}
+
+.active-task-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.active-task-label {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ffc107;
+    letter-spacing: 0.08em;
+}
+
+.active-task-title {
+    font-weight: 500;
+    color: #f8f9fa;
+}
+
+.active-task-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #ffc107;
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+    animation: active-task-pulse 1.5s infinite;
+}
+
+.active-task-time {
+    min-width: 80px;
+    text-align: center;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        'Liberation Mono', 'Courier New', monospace;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 193, 7, 0.7);
+    color: #ffc107;
+}
+
+@keyframes active-task-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(255, 193, 7, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+    }
+}

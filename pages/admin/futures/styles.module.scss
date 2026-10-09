@@ -1,0 +1,442 @@
+/* ====== Layout geral ====== */
+.page {
+    --surface: #0f1320;
+    --card: rgba(255, 255, 255, 0.03);
+    --line: rgba(255, 255, 255, 0.08);
+    --muted: #8b91a7;
+    --text: #dde3f3;
+    --green: #2ecc71;
+    --amber: #f1c40f;
+    --red: #ff6b6b;
+    --accent: #7c5cff;
+
+    color: var(--text);
+}
+
+/* ====== Card ====== */
+.card {
+    border: 1px solid var(--line);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0.02)
+    );
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid var(--line);
+    background: radial-gradient(
+            1200px 200px at 10% -100%,
+            rgba(124, 92, 255, 0.2),
+            transparent 40%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0)
+        );
+}
+
+.subtleMeta {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.cardBody {
+    padding-top: 0;
+}
+
+/* ====== Pills de resumo ====== */
+.pillGroup {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.pill {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+    align-items: baseline;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+}
+.pillTitle {
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+.pillValue {
+    font-weight: 700;
+}
+
+/* ====== Tabela ====== */
+.tableWrap {
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+}
+.table {
+    margin-bottom: 0;
+
+    thead th {
+        border-bottom: 1px solid var(--line);
+        font-weight: 700;
+        color: #c9d1ee;
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0)
+        );
+    }
+
+    tbody td,
+    tbody th {
+        vertical-align: middle;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    tbody tr:hover {
+        background: rgba(124, 92, 255, 0.08);
+    }
+}
+
+.stickyTh {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    backdrop-filter: blur(6px);
+}
+
+/* ====== Célula do cliente ====== */
+.clientCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 20%, #9f86ff, #6f54ff);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.12);
+}
+.clientInfo {
+    line-height: 1.1;
+}
+.clientName {
+    font-weight: 700;
+}
+.clientSub {
+    font-size: 0.82rem;
+    color: #b6c0e0;
+}
+.clientSubMuted {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+}
+
+/* ====== Links e botões ====== */
+.link,
+.linkSm {
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+.link:hover,
+.linkSm:hover {
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+.linkSm {
+    font-size: 0.85rem;
+    margin-left: 10px;
+}
+
+.actionBtn {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 10px;
+    font-size: 0.86rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    text-decoration: none;
+}
+.actionBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.whatsBtn {
+    background: linear-gradient(
+        180deg,
+        rgba(37, 211, 101, 0.15),
+        rgba(37, 211, 101, 0.08)
+    );
+    border-color: rgba(37, 211, 101, 0.35);
+}
+
+/* ====== Contrato ====== */
+.contractCell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.statusBadge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border: 1px solid transparent;
+}
+.statusBadge--active {
+    background: rgba(46, 204, 113, 0.12);
+    color: #b5ffd4;
+    border-color: rgba(46, 204, 113, 0.35);
+}
+.statusBadge--pending {
+    background: rgba(241, 196, 15, 0.12);
+    color: #ffe7a3;
+    border-color: rgba(241, 196, 15, 0.35);
+}
+.statusBadge--canceled {
+    background: rgba(255, 107, 107, 0.12);
+    color: #ffc4c4;
+    border-color: rgba(255, 107, 107, 0.35);
+}
+.statusBadge--neutral {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d6dcf3;
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ====== Valores ====== */
+.amount {
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+
+/* ====== Rodapé somatório ====== */
+.tfoot th {
+    border-top: 2px solid var(--line) !important;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0)
+    );
+}
+
+/* ====== Empty state ====== */
+.emptyState {
+    text-align: center;
+    padding: 48px 12px;
+    color: var(--muted);
+}
+.emptyEmoji {
+    font-size: 36px;
+}
+.emptyTitle {
+    color: #cfd6f4;
+    font-weight: 800;
+    margin-top: 8px;
+}
+.emptyText {
+    margin-top: 4px;
+}
+
+/* ====== Muted ====== */
+.muted {
+    color: var(--muted);
+}
+
+.cardHeader {
+    padding: 1rem 1.25rem;
+
+    :global(.form-control),
+    :global(select.form-select) {
+        background: #121212; // ou var(--bg-2)
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+}
+
+.pillGroup {
+    display: flex;
+    align-items: center;
+}
+
+.pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 8px 12px;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 160px;
+}
+
+.pillTitle {
+    font-size: 12px;
+    opacity: 0.7;
+    line-height: 1;
+}
+
+.pillValue {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.linkWebsite {
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    text-decoration: underline !important;
+
+    .underline-text {
+        position: relative;
+        display: inline-block;
+        text-decoration: underline !important;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.2s ease;
+        }
+    }
+
+    &:hover {
+        color: var(--bs-primary, #fbbf24); // cor principal (ajuste se quiser)
+        .underline-text::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        i {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+    }
+
+    i {
+        opacity: 0.7;
+        transition: all 0.2s ease;
+    }
+}
+
+.companyResults {
+    margin-top: 6px;
+    max-height: 220px;
+    overflow-y: auto;
+
+    border-radius: 10px;
+    border: 1px solid rgba(252, 211, 77, 0.45); // amarelinho em volta
+    background: radial-gradient(
+            600px 200px at 0% 0%,
+            rgba(252, 211, 77, 0.16),
+            transparent 55%
+        ),
+        rgba(7, 9, 16, 0.98);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* cada opção */
+.companyResultItem {
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    transition: background 0.12s ease, transform 0.08s ease;
+
+    /* linha divisória suave entre itens */
+    & + .companyResultItem {
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .fw-semibold {
+        font-size: 0.95rem;
+        color: #f9fafb;
+    }
+
+    .small {
+        color: rgba(203, 213, 225, 0.85);
+    }
+
+    &:hover {
+        background: rgba(252, 211, 77, 0.12);
+        transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+        outline: 2px solid rgba(252, 211, 77, 0.8);
+        outline-offset: 1px;
+    }
+}
+
+.companyResultItemActive {
+    background: rgba(252, 211, 77, 0.18);
+
+    .fw-semibold {
+        color: #fedf89;
+    }
+}
+
+/* STATUS - bonito no tema dark */
+
+.badgeStatus {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badgeStatusOverdue {
+    @extend .badgeStatus;
+    background: rgba(255, 60, 60, 0.18);
+    color: #ff4d4d;
+    border: 1px solid rgba(255, 60, 60, 0.4);
+}
+
+.badgeStatusPending {
+    @extend .badgeStatus;
+    background: rgba(255, 215, 0, 0.18);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+}
+
+.badgeStatusDefault {
+    @extend .badgeStatus;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,46 @@
+/* Sidebar Active Menu Item Styles */
+.side-menu__item.active {
+  color: var(--primary-color) !important;
+  background-color: rgba(var(--primary-rgb), 0.1) !important;
+}
+
+.side-menu__item.active .active-icon svg {
+  fill: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.side-menu__item.active .side-menu__icon {
+  fill: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Style for SVG paths inside active icons */
+.active-icon svg path,
+.side-menu__item.active svg path {
+  fill: var(--primary-color) !important;
+  stroke: var(--primary-color) !important;
+}
+
+.active-text {
+  color: var(--primary-color) !important;
+  font-weight: 500 !important;
+}
+
+.slide.active {
+  color: var(--primary-color) !important;
+}
+
+.slide.active > .side-menu__item {
+  background-color: rgba(var(--primary-rgb), 0.1) !important;
+}
+
+/* Hover styles */
+.side-menu__item:hover:not(.active) {
+  background-color: rgba(var(--primary-rgb), 0.05) !important;
+}
+
+/* Make sure active menu items are visible with better contrast */
+.side-menu__item.active .side-menu__label,
+.side-menu__item.active .side-menu__icon {
+  opacity: 1 !important;
+}
