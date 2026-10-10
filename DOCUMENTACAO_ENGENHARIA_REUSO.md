@@ -502,9 +502,156 @@ export class SeverityPriorityStrategy {
 
 ---
 
-## 4. Próximos Passos de Refatoração
+## 4. Matriz de Distribuição da Equipe (4 Integrantes × 2 Telas CRUD = 8 Telas)
 
-1. **Modularização de Pastas**: Criar os módulos sob `patterns/` e `services/` conforme especificado.
-2. **Desacoplamento das Rotas de API**: Refatorar `pages/api/*` para atuarem apenas como controladores enxutos (Request -> Service -> Response).
-3. **Validação de Schemas**: Implementar validação de entrada (ex: Zod ou Joi) antes da execução dos Services.
-4. Nessa reformulação vamos tbm remover tudo que tem a ver com a SOLID, nao vamos mais usar esse nome, vamos deixar ainda sim, porem vamos remover o contexto de SOLID(empresa) daqui de dentro
+Para atender ao requisito da disciplina (*"Mínimo de 2 telas CRUD por integrante conectadas ao banco de dados"*), a equipe de **4 integrantes** possui a seguinte divisão de responsabilidades:
+
+| Integrante | Módulo / Escopo | Tela 1 (CRUD) | Tela 2 (CRUD) | Tabelas Envolvidas |
+| :--- | :--- | :--- | :--- | :--- |
+| **Integrante 1** | **CRM & Gestão de Acessos** | **Empresas / Clientes** (`/admin/companies`)<br>• CRUD completo de clientes, CNPJ, contatos. | **Usuários & Equipe** (`/admin/users`)<br>• CRUD de colaboradores, senhas e papéis (RBAC). | `Company`, `User` |
+| **Integrante 2** | **Faturamento & Previsibilidade** | **Faturas Atuais** (`/admin/invoice`)<br>• Emissão, listagem, cancelamento e exportação. | **Recebíveis Futuros** (`/admin/futures`)<br>• Projeção e agendamento de faturas futuras. | `Invoice`, `MonthlyFee` |
+| **Integrante 3** | **Cobrança & Liquidação** | **Inadimplentes** (`/admin/inadimplentes`)<br>• Débitos vencidos e recálculo de juros (*Strategy*). | **Conciliação de Pagamentos** (`/admin/pagamentos`)<br>• Liquidação PIX, Boleto e Cartão de Crédito. | `Invoice`, `Payment` |
+| **Integrante 4** | **Operacional & Lançamento de Vendas**| **Tarefas & Time Tracker** (`/admin/tarefas`)<br>• Kanban, status com *Template Method* e horas. | **Gestão de Vendas & Entradas** (`/admin/finance`)<br>• Lançamento manual de pedidos e comissões. | `Task`, `Sale`, `Payment` |
+
+> 💡 **Tela Mestra de Reúso (LPS)**: Além das 8 telas individuais de CRUD, a equipe compartilha a tela **`/admin/variabilidade`**, que funciona como o *Configurador de Produtos da Linha de Software*.
+
+---
+
+## 5. Mapeamento das Tabelas do Banco de Dados (Prisma ORM)
+
+O sistema utiliza **7 tabelas relacionais** (superando o requisito mínimo de 3 tabelas):
+
+1. **`Company`**: Cadastro de empresas clientes, dados fiscais (CNPJ, endereço) e vínculos de CS/Vendedor.
+2. **`User`**: Operadores, administradores e assinantes com autenticação segura e papéis de permissão.
+3. **`Invoice`**: Faturas emitidas, status de pagamento (`PENDING`, `PAID`, `OVERDUE`, `CANCELED`), valores em centavos e flag `isFuture`.
+4. **`MonthlyFee`**: Contratos de mensalidades recorrentes por empresa cliente com dia de vencimento fixo.
+5. **`Payment`**: Histórico detalhado de transações liquidadas com método (`PIX`, `BOLETO`, `CREDIT_CARD`) e vínculos a faturas/vendas.
+6. **`Task`**: Tarefas operacionais com prioridade (`ALTA`, `MEDIA`, `BAIXA`), responsável e apontamento de tempo trabalhado (`totalTimeWorked`).
+7. **`Sale`**: Registro de vendas avulsas e comissões associadas aos operadores/vendedores.
+
+---
+
+## 6. Planejamento de Variabilidade e Linha de Produto de Software (LPS)
+
+### A. Modelo de Características (Feature Model)
+
+```mermaid
+graph TD
+    Root[Dashboard SaaS - Linha de Produto] --> Core[Ativos Centrais - Core Obrigatório]
+    Root --> VarFin[Variabilidade Financeira]
+    Root --> VarOp[Variabilidade Operacional]
+    Root --> VarUI[Variabilidade de Apresentação]
+
+    Core --> C1[Gestão de Empresas / Clientes]
+    Core --> C2[Autenticação & RBAC]
+    Core --> C3[Persistência Prisma / SQLite]
+
+    VarFin --> F1[Cálculo de Juros: Padrão vs VIP vs Isento]
+    VarFin --> F2[Meios de Pagamento: PIX / Boleto / Cartão]
+    VarFin --> F3[Exportação: CSV vs JSON]
+
+    VarOp --> O1[Tarefas: Ordenação por Prazo vs Ociosidade vs Gravidade]
+    VarOp --> O2[Time Tracker: Básico vs Apontamento em Tempo Real]
+
+    VarUI --> U1[White-Label: Customização de Cores e Logos]
+    VarUI --> U2[Perfis de Produto: Starter vs Growth vs Enterprise]
+```
+
+### B. Tabela de Pontos de Variação (Variation Points)
+
+| Ponto de Variação (VP) | Tipo de Variabilidade | Variantes Disponíveis | Mecanismo de Implementação | Tempo de Ligação (*Binding Time*) |
+| :--- | :--- | :--- | :--- | :--- |
+| **VP1: Regra de Juros de Inadimplência** | **Alternativa (1 de N)** | • Padrão (Multa 2% + 1% a.m.)<br>• VIP (Juros reduzidos sem multa)<br>• Isento (Tolerância total) | **Strategy Pattern** no Backend (`interestStrategies.js`) | Tempo de Execução (*Runtime*) |
+| **VP2: Liquidação de Cobranças** | **OR (1 ou mais)** | • PIX (Instantâneo)<br>• Boleto Bancário<br>• Cartão de Crédito | **Strategy Pattern** no Backend (`paymentStrategies.js`) | Tempo de Execução (*Runtime*) |
+| **VP3: Formato de Exportação** | **Alternativa** | • CSV Tabular<br>• JSON Estruturado | **Template Method** (`DataExportTemplate.js`) | Tempo de Execução (*Runtime*) |
+| **VP4: Ciclo de Vida de Tarefas** | **Obrigatório com Hooks** | • Início de Tarefa<br>• Pausa com Cálculo de Horas<br>• Conclusão com Notificação | **Template Method** (`TaskWorkflowTemplate.js`) | Tempo de Compilação/Execução |
+| **VP5: Perfil do Produto (Tenant)** | **Inclusão/Exclusão** | • **Starter**: Apenas empresas e faturas básicas<br>• **Growth**: Faturas + Kanban + Futuros<br>• **VIP Enterprise**: Split de pagamento + White-label | **Feature Toggles** no Frontend (`/admin/variabilidade`) | Tempo de Configuração (*Runtime*) |
+
+### C. Perfis de Produtos Derivados da LPS
+
+A partir da base de código única, o sistema permite derivar **3 produtos comerciais distintos**:
+
+1. **Produto 1: Starter (PME / Autônomo)**
+   - *Features ativas*: Empresas (`Company`), Faturas básicas (`Invoice`), Exportação CSV.
+   - *Finalidade*: Solução enxuta para pequenos prestadores de serviço com custo mínimo de infraestrutura.
+2. **Produto 2: Growth (Médias Empresas)**
+   - *Features ativas*: Starter + Quadro de Tarefas (`Task`), Gestão de Inadimplência com régua de cobrança e Faturas Futuras (`futures`).
+   - *Finalidade*: Empresas em expansão que necessitam de previsibilidade financeira e controle operacional.
+3. **Produto 3: VIP Enterprise (Grandes Operações / Eventos)**
+   - *Features ativas*: Growth + Múltiplos meios de pagamento (PIX, Boleto, Cartão), split de recebíveis, personalização White-Label e exportação JSON/APIs.
+   - *Finalidade*: Grandes clientes corporativos com demandas de integração e regras contratuais customizadas.
+
+
+
+
+
+   Anotações
+   As telas que aparecem exatamente no seu menu lateral (conforme o print que você enviou) são as seguintes:
+
+1. 🏢 Empresas
+Rota: http://localhost:3000/admin/companies
+Arquivo: 
+
+pages/admin/companies/index.js
+Tabela no Banco: Company
+O que faz (CRUD): Cadastrar novas empresas/clientes, listar empresas em tabela com busca rápida, editar contatos/CNPJ e excluir empresas.
+Divisão: 👤 Integrante 1
+2. 👤 Usuários
+Rota: http://localhost:3000/admin/users
+Arquivo: 
+
+pages/admin/users/index.js
+Tabela no Banco: User
+O que faz (CRUD): Cadastrar operadores/colaboradores, listar equipe, definir papéis de acesso (ADMIN, SUBSCRIBER), trocar senhas e suspender/desativar usuários.
+Divisão: 👤 Integrante 1
+3. 🧾 Cobrança (Invoices)
+Rota: http://localhost:3000/admin/invoice
+Arquivo: 
+
+pages/admin/invoice/index.js
+Tabela no Banco: Invoice
+O que faz (CRUD): Gerar faturas, visualizar cobranças no calendário interativo, marcar faturas como pagas, cancelar e exportar relatórios (CSV/JSON com Template Method).
+Divisão: 👤 Integrante 2
+4. 📅 Futuros (Recebíveis Futuros)
+Rota: http://localhost:3000/admin/futures
+Arquivo: 
+
+pages/admin/futures/index.js
+Tabelas no Banco: Invoice (filtro isFuture: true) e MonthlyFee
+O que faz (CRUD): Cadastrar previsões de receitas futuras por cliente, listar faturas programadas para os próximos 6 meses, editar valores/vencimentos futuros e cancelar lançamentos futuros.
+Divisão: 👤 Integrante 2
+5. ⚠️ Inadimplentes
+Rota: http://localhost:3000/admin/inadimplentes
+Arquivo: 
+
+pages/admin/inadimplentes/index.js
+Tabelas no Banco: Invoice (status OVERDUE) e Company
+O que faz (CRUD): Painel exclusivo de clientes com dívidas em atraso. Calcula juros/multas automáticos com o padrão Strategy (interestStrategies.js), permite renegociar faturas e prorrogar prazos de vencimento.
+Divisão: 👤 Integrante 3
+6. 💳 Pagamentos
+Rota: http://localhost:3000/admin/pagamentos
+Arquivo: 
+
+pages/admin/pagamentos/index.js
+Tabela no Banco: Payment
+O que faz (CRUD): Criar lançamentos de pagamento, listar histórico detalhado por método de pagamento (PIX, Boleto, Cartão de Crédito com PaymentStrategy), conciliar com faturas e estornar transações.
+Divisão: 👤 Integrante 3
+7. 📋 Tarefas
+Rota: http://localhost:3000/admin/tarefas
+Arquivo: 
+
+pages/admin/tarefas/index.js
+Tabela no Banco: Task
+O que faz (CRUD): Criar tarefas da equipe, atribuir responsáveis, mudar status no fluxo (Iniciar / Pausar / Concluir com cálculo de horas trabalhadas via TaskWorkflowTemplate) e reordenar por prioridade (Strategy).
+Divisão: 👤 Integrante 4
+8. 💼 Financeiro
+Rota: http://localhost:3000/admin/finance
+Arquivo: 
+
+pages/admin/finance/index.js
+Tabelas no Banco: Sale e Payment
+O que faz (CRUD): Registrar pedidos manuais e vendas avulsas, listar entradas financeiras totais por período (7 dias, 30 dias, anual), calcular comissões de vendedores e excluir/editar vendas.
+Divisão: 👤 Integrante 4
+📊 Telas Adicionais do Sistema:
+🏠 Dashboard (/admin/dashboard): Tela de visão executiva agregando os cards de faturamento, total de empresas e métricas gerais.
+🧩 Variabilidade (/admin/variabilidade): O Configurador de Linha de Produto de Software (LPS), onde vocês alternam ao vivo entre os produtos derivados (Starter, Growth, VIP).
