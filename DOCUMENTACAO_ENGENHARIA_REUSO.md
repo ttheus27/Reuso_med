@@ -44,6 +44,27 @@ dashboard-main/
 
 ---
 
+## 1.1. As 10 Classes Principais do Sistema (Requisito 01)
+
+Atendendo à exigência do edital (*"Mas antes vocês devem codificar as principais classes (ao menos 10) com métodos e atributos"*), o sistema implementa 10 entidades ricas de domínio na pasta `core/entities/`, com encapsulamento de atributos privados, validações e métodos de negócio:
+
+| # | Classe de Domínio | Arquivo | Atributos Principais | Métodos de Negócio Chave |
+| :-: | :--- | :--- | :--- | :--- |
+| **1** | `Company` | `core/entities/Company.js` | `#id`, `#name`, `#cnpj`, `#email`, `#phone`, `#whatsapp`, `#notes`, `#ownerId` | `validateCnpj()`, `formatCnpj()`, `getCleanWhatsApp()`, `isVipClient()`, `toJSON()` |
+| **2** | `User` | `core/entities/User.js` | `#id`, `#name`, `#email`, `#role`, `#cpf`, `#phoneNumber` | `isAdmin()`, `hasPermission(action)`, `maskCpf()`, `getInitials()`, `toJSON()` |
+| **3** | `Invoice` | `core/entities/Invoice.js` | `#id`, `#companyId`, `#amountCents`, `#dueDate`, `#status`, `#paidAt`, `#isFuture` | `isOverdue()`, `calculateDaysLate()`, `markAsPaid()`, `cancel()`, `getFormattedAmount()` |
+| **4** | `Task` | `core/entities/Task.js` | `#id`, `#title`, `#status`, `#priority`, `#dueDate`, `#startedAt`, `#totalTimeWorked` | `start()`, `pause()`, `complete()`, `getFormattedTimeWorked()`, `isUrgent()` |
+| **5** | `Payment` | `core/entities/Payment.js` | `#id`, `#userId`, `#amountCents`, `#method`, `#status`, `#type` | `isLiquidated()`, `calculateGatewayFeeCents()`, `getNetRevenueCents()`, `getFormattedAmount()` |
+| **6** | `MonthlyFee` | `core/entities/MonthlyFee.js` | `#id`, `#companyId`, `#amountCents`, `#dueDay`, `#dueDate`, `#isActive` | `generateNextDueDate()`, `deactivate()`, `activate()`, `getFormattedAmount()` |
+| **7** | `Sale` | `core/entities/Sale.js` | `#id`, `#userId`, `#description`, `#amountCents`, `#createdAt` | `calculateCommissionCents(percent)`, `getFormattedAmount()`, `toJSON()` |
+| **8** | `Address` | `core/entities/Address.js` | `#street`, `#number`, `#neighborhood`, `#city`, `#state`, `#zipCode` | `formatCep()`, `formatFullAddress()`, `toJSON()` |
+| **9** | `AuditLog` | `core/entities/AuditLog.js` | `#id`, `#entity`, `#entityId`, `#action`, `#performedBy`, `#details`, `#timestamp` | `isRecent(maxMinutes)`, `formatLogEntry()`, `toJSON()` |
+| **10** | `SubscriptionPlan` | `core/entities/SubscriptionPlan.js`| `#name`, `#profile`, `#priceCents`, `#features`, `#allowedPaymentMethods` | `hasFeature()`, `canAcceptPaymentMethod()`, `isVipEnterprise()`, `createStarterPlan()`, `createVipEnterprisePlan()` |
+
+Todas as 10 classes são exportadas centralizadamente em `core/index.js`.
+
+---
+
 ## 2. Catálogo de Padrões de Projeto (GoF)
 
 ---
@@ -565,20 +586,32 @@ graph TD
 | **VP2: Liquidação de Cobranças** | **OR (1 ou mais)** | • PIX (Instantâneo)<br>• Boleto Bancário<br>• Cartão de Crédito | **Strategy Pattern** no Backend (`paymentStrategies.js`) | Tempo de Execução (*Runtime*) |
 | **VP3: Formato de Exportação** | **Alternativa** | • CSV Tabular<br>• JSON Estruturado | **Template Method** (`DataExportTemplate.js`) | Tempo de Execução (*Runtime*) |
 | **VP4: Ciclo de Vida de Tarefas** | **Obrigatório com Hooks** | • Início de Tarefa<br>• Pausa com Cálculo de Horas<br>• Conclusão com Notificação | **Template Method** (`TaskWorkflowTemplate.js`) | Tempo de Compilação/Execução |
-| **VP5: Perfil do Produto (Tenant)** | **Inclusão/Exclusão** | • **Starter**: Apenas empresas e faturas básicas<br>• **Growth**: Faturas + Kanban + Futuros<br>• **VIP Enterprise**: Split de pagamento + White-label | **Feature Toggles** no Frontend (`/admin/variabilidade`) | Tempo de Configuração (*Runtime*) |
+| **VP5: Perfil do Produto & Colunas Condicionais** | **Inclusão/Exclusão (Feature Toggle)** | • **Starter**: Oculta módulo comercial (CS/Vendedor)<br>• **Growth**: Habilita colunas com CS e Vendedor vinculados<br>• **VIP Enterprise**: Gestão comercial completa + Split Pix | **Feature Toggles em Produção** em `/admin/companies` + Simulador Geral em `/admin/variabilidade` | Tempo de Configuração (*Runtime via UI/Storage*) |
 
-### C. Perfis de Produtos Derivados da LPS
+### C. Implementação Concreta da Variabilidade (Exemplo Prático em Código Real)
 
-A partir da base de código única, o sistema permite derivar **3 produtos comerciais distintos**:
+Para atender a exigência de **não deixar a variabilidade apenas no planejamento conceitual**, uma das variações foi desenvolvida e conectada diretamente à tela operacional de **Gestão de Empresas (`/admin/companies`)**:
+
+1. **Localização no Código**:
+   - `pages/admin/companies/index.js`: Gerencia o estado de perfil `lpsProfile` (`STARTER`, `GROWTH`, `VIP`) com persistência no `localStorage`.
+   - `components/CompaniesHeader.jsx`: Apresenta o seletor visual de perfil LPS no cabeçalho com badges interativas.
+   - `components/CompaniesTable.jsx`: Executa a lógica de variação renderizando condicionalmente o banner explicativo, os cabeçalhos (`<th>`) de **CS Responsável** e **Vendedor**, e as células (`<td>`) com dados reais obtidos do banco de dados (relacionamento `cs` e `seller` no Prisma).
+2. **Comportamento em Tempo de Execução**:
+   - Ao selecionar **Starter (PME)**: O sistema oculta as colunas comerciais, simplificando a interface para pequenas operações.
+   - Ao selecionar **Growth** ou **VIP Enterprise**: O sistema injeta dinamicamente as colunas de **CS Responsável** e **Vendedor**, com badges de status de atribuição.
+
+### D. Perfis de Produtos Derivados da LPS
+
+A partir da base de código única, o sistema deriva **3 produtos comerciais distintos**:
 
 1. **Produto 1: Starter (PME / Autônomo)**
-   - *Features ativas*: Empresas (`Company`), Faturas básicas (`Invoice`), Exportação CSV.
+   - *Features ativas*: Empresas (`Company`) com visão simplificada (sem CS/Vendedor), Faturas básicas (`Invoice`), Exportação CSV.
    - *Finalidade*: Solução enxuta para pequenos prestadores de serviço com custo mínimo de infraestrutura.
 2. **Produto 2: Growth (Médias Empresas)**
-   - *Features ativas*: Starter + Quadro de Tarefas (`Task`), Gestão de Inadimplência com régua de cobrança e Faturas Futuras (`futures`).
+   - *Features ativas*: Starter + Módulo Comercial em Empresas (CS e Vendedor vinculados) + Quadro de Tarefas (`Task`) com workflow estruturado + Gestão de Inadimplência com régua de cobrança e Faturas Futuras (`futures`).
    - *Finalidade*: Empresas em expansão que necessitam de previsibilidade financeira e controle operacional.
 3. **Produto 3: VIP Enterprise (Grandes Operações / Eventos)**
-   - *Features ativas*: Growth + Múltiplos meios de pagamento (PIX, Boleto, Cartão), split de recebíveis, personalização White-Label e exportação JSON/APIs.
+   - *Features ativas*: Growth + Múltiplos meios de pagamento (PIX, Boleto, Cartão), regras de juros especiais para clientes VIP, split de recebíveis, personalização White-Label e exportação JSON/APIs.
    - *Finalidade*: Grandes clientes corporativos com demandas de integração e regras contratuais customizadas.
 
 

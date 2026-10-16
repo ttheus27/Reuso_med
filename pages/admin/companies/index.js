@@ -1,5 +1,6 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { getServerSession } from 'next-auth';
+import { useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import CompaniesHeader from '../../../components/CompaniesHeader';
 import CompaniesTable from '../../../components/CompaniesTable';
@@ -13,6 +14,20 @@ import { getAllCompanies } from '@/pages/api/server/db/companies/getAllCompanies
 import { getAllUsers } from '@/pages/api/server/db/users/getAllUsers';
 
 export default function CompaniesPage({ initialCompanies, users }) {
+    const [lpsProfile, setLpsProfile] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return localStorage.getItem('lps_profile') || 'GROWTH';
+        }
+        return 'GROWTH';
+    });
+
+    const handleLpsProfileChange = (profile) => {
+        setLpsProfile(profile);
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('lps_profile', profile);
+        }
+    };
+
     const ctx = useCompaniesPage(initialCompanies, users);
     const {
         searchTerm,
@@ -62,6 +77,8 @@ export default function CompaniesPage({ initialCompanies, users }) {
                             isEditing={isEditing}
                             activeFilter={activeFilter}
                             setActiveFilter={setActiveFilter}
+                            lpsProfile={lpsProfile}
+                            onLpsProfileChange={handleLpsProfileChange}
                         />
                     </Card.Body>
 
@@ -78,6 +95,7 @@ export default function CompaniesPage({ initialCompanies, users }) {
                         onEdit={openEdit}
                         onDelete={onDelete}
                         openDrawer={openDrawer}
+                        lpsProfile={lpsProfile}
                     />
                 </Col>
             </Row>

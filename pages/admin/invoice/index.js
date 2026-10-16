@@ -693,6 +693,24 @@ export default function CalendarPage({ initialEvents, initialCursorISO }) {
                                     </ButtonGroup>
                                 </div>
                                 <div className={styles.right}>
+                                    <ButtonGroup className="me-2">
+                                        <Button
+                                            size="sm"
+                                            variant="outline-success"
+                                            onClick={() => window.open('/api/invoice/export?format=csv', '_blank')}
+                                            title="Exportar faturas em CSV via Template Method"
+                                        >
+                                            <i className="fe fe-download me-1" /> Exportar CSV
+                                        </Button>
+                                        <Button
+                                            size="sm"
+                                            variant="outline-primary"
+                                            onClick={() => window.open('/api/invoice/export?format=json', '_blank')}
+                                            title="Exportar faturas em JSON via Template Method"
+                                        >
+                                            <i className="fe fe-file-text me-1" /> JSON
+                                        </Button>
+                                    </ButtonGroup>
                                     <ButtonGroup>
                                         <Button
                                             size="sm"

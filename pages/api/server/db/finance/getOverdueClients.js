@@ -1,5 +1,10 @@
 // /api/server/db/finance/getOverdueClients.ts
 import { prisma } from '../prisma';
+import {
+    InvoiceCalculatorContext,
+    StandardInterestStrategy,
+    VipInterestStrategy,
+} from '../../../../../patterns/strategy/interestStrategies';
 
 export default async function handler(req, res) {
     if (req.method !== 'GET') {
@@ -21,6 +26,10 @@ export default async function handler(req, res) {
         const year = today.getFullYear();
         const month1 = today.getMonth() + 1; // 1..12
 
+        // 🔍 Instancia contextos da Strategy de Juros
+        const standardContext = new InvoiceCalculatorContext(new StandardInterestStrategy());
+        const vipContext = new InvoiceCalculatorContext(new VipInterestStrategy());
+
         // 🔍 Busca faturas vencidas do mês corrente
         const overdueInvoices = await prisma.invoice.findMany({
             where: {
@@ -31,8 +40,8 @@ export default async function handler(req, res) {
             },
             select: {
                 amountCents: true,
-                dueDay: true, // 👈 adiciona aqui
-                dueDate: true, // 👈 (opcional, se quiser mostrar data também)
+                dueDay: true,
+                dueDate: true,
                 company: {
                     select: {
                         id: true,
@@ -43,14 +52,16 @@ export default async function handler(req, res) {
                         phone: true,
                         contractUrl: true,
                         contractUploadedAt: true,
+                        notes: true,
                     },
                 },
             },
         });
 
-        // Agrupamento por empresa
+        // Agrupamento por empresa com cálculo via Strategy
         const clientsMap = new Map();
         let totalOverdueCents = 0;
+        let totalWithInterestCents = 0;
 
         for (const inv of overdueInvoices) {
             const amount = inv.amountCents || 0;
@@ -58,6 +69,22 @@ export default async function handler(req, res) {
 
             const c = inv.company;
             if (!c?.id) continue;
+
+            const isVip = Boolean(
+                c.notes &&
+                (c.notes.toLowerCase().includes('vip') ||
+                 c.notes.toLowerCase().includes('parceiro') ||
+                 c.notes.toLowerCase().includes('premium'))
+            );
+
+            // Dias de atraso
+            const diffMs = Math.max(0, startOfToday.getTime() - new Date(inv.dueDate).getTime());
+            const daysLate = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+            // Aplicação Polimórfica do Padrão STRATEGY
+            const calculator = isVip ? vipContext : standardContext;
+            const amountWithInterest = calculator.getFinalAmount(amount, daysLate);
+            totalWithInterestCents += amountWithInterest;
 
             const existing = clientsMap.get(c.id) ?? {
                 id: c.id,
@@ -69,13 +96,21 @@ export default async function handler(req, res) {
                 contractUrl: c.contractUrl ?? null,
                 contractStatus: c.contractUrl ? 'ACTIVE' : 'PENDING',
                 totalOverdueCents: 0,
+                totalWithInterestCents: 0,
                 invoiceCount: 0,
-                dueDay: null, // 👈 inicializa
+                isVip,
+                appliedStrategy: isVip
+                    ? 'VIP (Sem multa, juros 0.015%/dia)'
+                    : 'Padrão (Multa 2% + juros 0.033%/dia)',
+                daysLate: 0,
+                dueDay: null,
                 dueDate: null,
             };
 
             existing.totalOverdueCents += amount;
+            existing.totalWithInterestCents += amountWithInterest;
             existing.invoiceCount += 1;
+            existing.daysLate = Math.max(existing.daysLate, daysLate);
 
             // mantém o maior dueDay / dueDate (mais recente)
             if (!existing.dueDay || inv.dueDay > existing.dueDay) {
@@ -101,12 +136,16 @@ export default async function handler(req, res) {
             .map((c) => ({
                 ...c,
                 totalOverdue: c.totalOverdueCents / 100,
+                totalWithInterest: c.totalWithInterestCents / 100,
+                interestAdded: (c.totalWithInterestCents - c.totalOverdueCents) / 100,
             }))
             .sort((a, b) => b.totalOverdueCents - a.totalOverdueCents);
 
         return res.status(200).json({
             overdueAmountCents: totalOverdueCents,
             overdueAmount: totalOverdueCents / 100,
+            overdueWithInterestAmount: totalWithInterestCents / 100,
+            totalInterestAdded: (totalWithInterestCents - totalOverdueCents) / 100,
             overdueClientsCount: clients.length,
             clients,
         });

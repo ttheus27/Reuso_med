@@ -1,5 +1,6 @@
 // pages/api/server/db/tasks/updateTask.js
 import { prisma } from '../prisma';
+import { getWorkflowForTransition } from '../../../../../patterns/template-method/TaskWorkflowTemplate';
 
 export default async function handler(req, res) {
     console.log('\n===== 🔵 UPDATE TASK API CALLED =====');
@@ -68,81 +69,19 @@ export default async function handler(req, res) {
         if (attachmentMime !== undefined)
             data.attachmentMime = attachmentMime || null;
 
-        // TIMER LOGIC
+        // Aplicação do Padrão GoF: TEMPLATE METHOD (TaskWorkflowTemplate)
+        let activeWorkflow = null;
         if (status) {
             const newStatus = String(status).toUpperCase();
-            const oldStatus = String(current.status).toUpperCase();
+            activeWorkflow = getWorkflowForTransition(newStatus, current.status);
 
-            console.log(
-                `⚙️ Lógica de timer: old=${oldStatus}, new=${newStatus}`
-            );
-
-            // ▶️ PLAY (indo para EM_ANDAMENTO)
-            if (newStatus === 'EM_ANDAMENTO') {
-                console.log('▶️ Iniciando ou retomando a tarefa');
-
-                // primeira vez
-                if (!current.startedAt) {
-                    data.startedAt = now;
-                    console.log(
-                        '⏱️ Definindo startedAt pela primeira vez:',
-                        now
-                    );
-                }
-
-                // sempre ao retomar:
-                data.lastResumeAt = now;
-                console.log('▶️ lastResumeAt definido:', now);
-
-                // ao retomar, nunca pode ter pausedAt
-                data.pausedAt = null;
-
-                // ❗ NÃO altera totalTimeWorked aqui
+            if (activeWorkflow) {
+                console.log(`🎯 [Template Method] Delegando transição de status para: ${activeWorkflow.constructor.name}`);
+                const workflowData = activeWorkflow.calculateTimestamps(current);
+                Object.assign(data, workflowData);
+            } else {
+                data.status = newStatus;
             }
-
-            // ⏸️ PAUSE (indo para ABERTA)
-            if (newStatus === 'ABERTA' && oldStatus === 'EM_ANDAMENTO') {
-                console.log('⏸️ Pausando tarefa');
-
-                if (current.lastResumeAt) {
-                    const diff =
-                        now.getTime() -
-                        new Date(current.lastResumeAt).getTime();
-                    const total = (current.totalTimeWorked || 0) + diff;
-
-                    data.totalTimeWorked = total;
-                    console.log(
-                        `🧮 Somando tempo: +${diff}ms (total agora = ${total})`
-                    );
-                }
-
-                data.pausedAt = now;
-                data.lastResumeAt = null;
-            }
-
-            // ✔️ CONCLUIR
-            if (newStatus === 'CONCLUIDA') {
-                console.log('🏁 Concluindo tarefa');
-
-                // se estava rodando, somar tempo
-                if (oldStatus === 'EM_ANDAMENTO' && current.lastResumeAt) {
-                    const diff =
-                        now.getTime() -
-                        new Date(current.lastResumeAt).getTime();
-                    const total = (current.totalTimeWorked || 0) + diff;
-
-                    data.totalTimeWorked = total;
-                    console.log(
-                        `🧮 Finalizando: +${diff}ms (total agora = ${total})`
-                    );
-                }
-
-                data.finishedAt = now;
-                data.lastResumeAt = null;
-                data.pausedAt = null;
-            }
-
-            data.status = newStatus;
         }
 
         console.log('📤 DATA FINAL ENVIADA PARA PRISMA:', data);
@@ -152,6 +91,11 @@ export default async function handler(req, res) {
             data,
             include: { company: true, assignee: true },
         });
+
+        // Hook de pós-transição do Template Method
+        if (activeWorkflow) {
+            await activeWorkflow.afterTransition(task);
+        }
 
         console.log('🟢 TASK ATUALIZADA COM SUCESSO:', task);
 

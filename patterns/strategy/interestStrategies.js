@@ -3,6 +3,8 @@
  * Estratégias intercambiáveis para cálculo de juros e multas por atraso de pagamento.
  */
 
+import appConfig from "../singleton/AppConfigService";
+
 // Interface Conceitual de Estratégia de Juros
 export class InterestStrategy {
   calculate(amountCents, daysLate) {
@@ -12,13 +14,15 @@ export class InterestStrategy {
 
 /**
  * Estratégia 1: Padrão Comercial
- * Multa fixa de 2% + 0.033% ao dia (aproximadamente 1% a.m.)
+ * Utiliza o Singleton AppConfigService para obter taxa de multa (ex: 2%) e juros diários (0.033%)
  */
 export class StandardInterestStrategy extends InterestStrategy {
   calculate(amountCents, daysLate) {
     if (daysLate <= 0) return amountCents;
-    const fine = amountCents * 0.02;
-    const dailyInterest = amountCents * (0.00033 * daysLate);
+    const fineRate = appConfig.get("defaultFinePercent") ?? 0.02;
+    const dailyRate = appConfig.get("defaultDailyInterestPercent") ?? 0.00033;
+    const fine = amountCents * fineRate;
+    const dailyInterest = amountCents * (dailyRate * daysLate);
     return Math.round(amountCents + fine + dailyInterest);
   }
 }

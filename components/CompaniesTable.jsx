@@ -44,11 +44,37 @@ export default function CompaniesTable({
     totalResults,
     onEdit,
     onDelete,
-    openDrawer, // << novo
+    openDrawer,
+    lpsProfile = 'GROWTH',
 }) {
+    const isGrowthOrVip = lpsProfile === 'GROWTH' || lpsProfile === 'VIP';
+
     return (
         <Card className="shadow-sm">
             <Card.Body className="p-3">
+                {/* Banner Informativo da Linha de Produto (LPS) */}
+                <div className={`alert ${isGrowthOrVip ? 'alert-primary border-primary' : 'alert-light border'} py-2 px-3 mb-3 d-flex flex-wrap justify-content-between align-items-center rounded`}>
+                    <div className="d-flex align-items-center gap-2">
+                        <span className={`badge ${lpsProfile === 'VIP' ? 'bg-danger' : lpsProfile === 'GROWTH' ? 'bg-primary' : 'bg-secondary'}`}>
+                            {lpsProfile === 'VIP' ? 'VIP Enterprise' : lpsProfile === 'GROWTH' ? 'Growth Ativo' : 'Starter Ativo'}
+                        </span>
+                        <span className="fs-12">
+                            {isGrowthOrVip ? (
+                                <>
+                                    <strong>[LPS Ativa] Módulo Comercial Habilitado:</strong> As colunas de <strong>CS Responsável</strong> e <strong>Vendedor</strong> são renderizadas dinamicamente nesta tela.
+                                </>
+                            ) : (
+                                <>
+                                    <strong>[LPS Ativa] Módulo Básico:</strong> As colunas de gestão comercial foram omitidas para o perfil <strong>Starter (PME)</strong>, simplificando a interface.
+                                </>
+                            )}
+                        </span>
+                    </div>
+                    <span className="fs-11 text-muted">
+                        Ponto de Variação (VP2): Colunas Condicionais de Gestão Comercial
+                    </span>
+                </div>
+
                 <div className={styles.tableHeader}>
                     <Form.Control
                         type="text"
@@ -67,6 +93,16 @@ export default function CompaniesTable({
                                 <th className={styles.nameCol}>Nome</th>
                                 <th className={styles.emailCol}>E-mail</th>
                                 <th className={styles.phoneCol}>Telefone</th>
+                                {isGrowthOrVip && (
+                                    <th className={styles.center} style={{ color: '#6c5dd3', minWidth: '130px' }}>
+                                        <i className="fe fe-user-check me-1" /> CS Responsável
+                                    </th>
+                                )}
+                                {isGrowthOrVip && (
+                                    <th className={styles.center} style={{ color: '#0ea5e9', minWidth: '130px' }}>
+                                        <i className="fe fe-award me-1" /> Vendedor
+                                    </th>
+                                )}
                                 <th
                                     className={`${styles.center} ${styles.docCol}`}
                                 >
@@ -93,7 +129,7 @@ export default function CompaniesTable({
                         <tbody>
                             {currentItems.length === 0 ? (
                                 <tr>
-                                    <td colSpan={7} className={styles.empty}>
+                                    <td colSpan={isGrowthOrVip ? 9 : 7} className={styles.empty}>
                                         Sem empresas
                                     </td>
                                 </tr>
@@ -202,6 +238,32 @@ export default function CompaniesTable({
                                             </td>
 
                                             <td>{formatPhoneBR(phoneOnly)}</td>
+
+                                            {/* Colunas Condicionais da Linha de Produto (LPS) */}
+                                            {isGrowthOrVip && (
+                                                <td className={styles.center} onClick={(e) => e.stopPropagation()}>
+                                                    {c.cs?.name ? (
+                                                        <span className="badge bg-primary-transparent text-primary fw-semibold px-2 py-1" style={{ fontSize: '11px' }}>
+                                                            <i className="fe fe-user-check me-1" />
+                                                            {c.cs.name}
+                                                        </span>
+                                                    ) : (
+                                                        <span className="text-muted small" style={{ fontSize: '11px' }}>Não atribuído</span>
+                                                    )}
+                                                </td>
+                                            )}
+                                            {isGrowthOrVip && (
+                                                <td className={styles.center} onClick={(e) => e.stopPropagation()}>
+                                                    {c.seller?.name ? (
+                                                        <span className="badge bg-info-transparent text-info fw-semibold px-2 py-1" style={{ fontSize: '11px' }}>
+                                                            <i className="fe fe-award me-1" />
+                                                            {c.seller.name}
+                                                        </span>
+                                                    ) : (
+                                                        <span className="text-muted small" style={{ fontSize: '11px' }}>—</span>
+                                                    )}
+                                                </td>
+                                            )}
 
                                             {/* Documento */}
                                             <td

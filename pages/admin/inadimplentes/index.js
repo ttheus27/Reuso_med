@@ -33,11 +33,13 @@ export default function OverdueClientsPage() {
                 setClients(list);
                 setSummary({
                     amount: data?.overdueAmount || 0,
+                    withInterest: data?.overdueWithInterestAmount || data?.overdueAmount || 0,
+                    interestAdded: data?.totalInterestAdded || 0,
                     count: data?.overdueClientsCount || list.length || 0,
                 });
             } catch {
                 setClients([]);
-                setSummary({ amount: 0, count: 0 });
+                setSummary({ amount: 0, withInterest: 0, interestAdded: 0, count: 0 });
             } finally {
                 setLoading(false);
             }
@@ -162,10 +164,18 @@ export default function OverdueClientsPage() {
                                 <div className={styles.pillGroup}>
                                     <span className={styles.pill}>
                                         <span className={styles.pillTitle}>
-                                            Total em aberto
+                                            Total Nominal
                                         </span>
                                         <span className={styles.pillValue}>
                                             {formatAmount(summary.amount)}
+                                        </span>
+                                    </span>
+                                    <span className={styles.pill} style={{ borderLeft: '3px solid #10b981' }}>
+                                        <span className={styles.pillTitle}>
+                                            Total c/ Juros (Strategy)
+                                        </span>
+                                        <span className={styles.pillValue} style={{ color: '#10b981' }}>
+                                            {formatAmount(summary.withInterest)}
                                         </span>
                                     </span>
                                     <span className={styles.pill}>
@@ -232,7 +242,13 @@ export default function OverdueClientsPage() {
                                                 <th
                                                     className={`${styles.stickyTh} text-end`}
                                                 >
-                                                    Valor em aberto
+                                                    Valor Nominal
+                                                </th>
+                                                <th
+                                                    className={`${styles.stickyTh} text-end`}
+                                                    style={{ color: '#10b981' }}
+                                                >
+                                                    Valor c/ Juros (Strategy)
                                                 </th>
                                                 <th
                                                     className={`${styles.stickyTh} text-end`}
@@ -398,12 +414,21 @@ export default function OverdueClientsPage() {
                                                             )}
                                                         </td>
 
-                                                        {/* Valor */}
-                                                        <td className="text-end fw-bold">
+                                                        {/* Valor Nominal */}
+                                                        <td className="text-end">
                                                             {formatAmount(
-                                                                c.totalOverdue ||
-                                                                    0
+                                                                c.totalOverdue || 0
                                                             )}
+                                                        </td>
+
+                                                        {/* Valor com Juros (Strategy) */}
+                                                        <td className="text-end fw-bold" style={{ color: '#10b981' }}>
+                                                            {formatAmount(
+                                                                c.totalWithInterest || c.totalOverdue || 0
+                                                            )}
+                                                            <div className="small text-muted" style={{ fontSize: '10px' }}>
+                                                                {c.appliedStrategy || 'Padrão'}
+                                                            </div>
                                                         </td>
 
                                                         {/* Mensalidades */}
@@ -427,6 +452,11 @@ export default function OverdueClientsPage() {
                                                 <th className="text-end">
                                                     {formatAmount(
                                                         summary.amount
+                                                    )}
+                                                </th>
+                                                <th className="text-end" style={{ color: '#10b981' }}>
+                                                    {formatAmount(
+                                                        summary.withInterest
                                                     )}
                                                 </th>
                                                 <th className="text-end">

@@ -59,23 +59,28 @@ export class StartTaskWorkflow extends TaskWorkflowTemplate {
 }
 
 /**
- * Subclasse Concreta: Transição para 'PAUSADA'
+ * Subclasse Concreta: Transição para 'PAUSADA' / 'ABERTA'
  */
 export class PauseTaskWorkflow extends TaskWorkflowTemplate {
   calculateTimestamps(task) {
     const now = new Date();
-    let additionalWorkedMs = 0;
+    let diff = 0;
     if (task.lastResumeAt) {
-      additionalWorkedMs = now.getTime() - new Date(task.lastResumeAt).getTime();
+      diff = now.getTime() - new Date(task.lastResumeAt).getTime();
     }
     const currentTotal = task.totalTimeWorked || 0;
-    const newTotalSeconds = currentTotal + Math.floor(additionalWorkedMs / 1000);
+    const newTotalMs = currentTotal + diff;
 
     return {
-      status: "PAUSADA",
+      status: "ABERTA",
       pausedAt: now,
-      totalTimeWorked: newTotalSeconds,
+      lastResumeAt: null,
+      totalTimeWorked: newTotalMs,
     };
+  }
+
+  async afterTransition(task) {
+    console.log(`[TaskWorkflow] Tarefa #${task.id} pausada. Tempo acumulado: ${task.totalTimeWorked}ms`);
   }
 }
 
@@ -85,14 +90,38 @@ export class PauseTaskWorkflow extends TaskWorkflowTemplate {
 export class CompleteTaskWorkflow extends TaskWorkflowTemplate {
   calculateTimestamps(task) {
     const now = new Date();
+    let diff = 0;
+    if (task.status === "EM_ANDAMENTO" && task.lastResumeAt) {
+      diff = now.getTime() - new Date(task.lastResumeAt).getTime();
+    }
+    const currentTotal = task.totalTimeWorked || 0;
+    const newTotalMs = currentTotal + diff;
+
     return {
       status: "CONCLUIDA",
       finishedAt: now,
+      lastResumeAt: null,
       pausedAt: null,
+      totalTimeWorked: newTotalMs,
     };
   }
 
   async afterTransition(task) {
     console.log(`[TaskWorkflow] Tarefa #${task.id} concluída com sucesso.`);
   }
+}
+
+/**
+ * Factory Method para instanciar o Workflow adequado
+ */
+export function getWorkflowForTransition(targetStatus, currentStatus) {
+  const target = String(targetStatus || "").toUpperCase();
+  const current = String(currentStatus || "").toUpperCase();
+
+  if (target === "EM_ANDAMENTO") return new StartTaskWorkflow();
+  if ((target === "ABERTA" || target === "PAUSADA") && current === "EM_ANDAMENTO") {
+    return new PauseTaskWorkflow();
+  }
+  if (target === "CONCLUIDA") return new CompleteTaskWorkflow();
+  return null;
 }

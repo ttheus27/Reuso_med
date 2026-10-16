@@ -16,6 +16,7 @@ export {
   StartTaskWorkflow,
   PauseTaskWorkflow,
   CompleteTaskWorkflow,
+  getWorkflowForTransition,
 } from "./template-method/TaskWorkflowTemplate";
 
 export {
