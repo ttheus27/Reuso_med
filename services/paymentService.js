@@ -39,7 +39,7 @@ class PaymentService {
     const createdPayment = await paymentRepository.create({
       amountCents: paymentInput.amountCents,
       method: transactionResult.method,
-      status: transactionResult.status,
+      status: paymentInput.status || transactionResult.status,
       companyId: paymentInput.companyId,
       monthlyFeeId: paymentInput.monthlyFeeId,
       userId: paymentInput.userId,

@@ -86,24 +86,29 @@ const Finance = ({ recentOrders, totalSales, totalPayments }) => {
       return;
     }
 
-    if (!manualOrderForm.amount || parseFloat(manualOrderForm.amount) <= 0) {
-      toast.error("Insira um valor válido");
+    const parsedAmount = parseFloat(manualOrderForm.amount);
+    if (!manualOrderForm.amount || isNaN(parsedAmount) || parsedAmount <= 0) {
+      toast.error("Insira um valor válido maior que zero");
+      return;
+    }
+
+    if (parsedAmount > 20000000) {
+      toast.error("O valor máximo permitido por transação é R$ 20.000.000,00");
       return;
     }
 
     setIsCreatingOrder(true);
 
     try {
-      const response = await axios.post("/api/orders/create-manual", {
+      const response = await axios.post("/api/orders/create-manual/", {
         companyId: selectedCompany.id,
-        amount: parseFloat(manualOrderForm.amount),
+        amount: parsedAmount,
         paymentMethod: manualOrderForm.paymentMethod,
         status: manualOrderForm.status,
         paymentType: manualOrderForm.paymentType,
       });
 
       const message = "Pagamento criado com sucesso!";
-
       toast.success(message);
 
       // Resetar o form
@@ -120,7 +125,11 @@ const Finance = ({ recentOrders, totalSales, totalPayments }) => {
       window.location.reload();
     } catch (error) {
       console.error("Erro ao criar pedido:", error);
-      toast.error("Erro ao criar pedido. Tente novamente.");
+      const serverMessage =
+        error?.response?.data?.error ||
+        error?.response?.data?.details ||
+        "Erro ao criar pedido. Tente novamente.";
+      toast.error(serverMessage);
     } finally {
       setIsCreatingOrder(false);
     }

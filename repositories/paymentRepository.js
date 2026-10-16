@@ -30,16 +30,31 @@ class PaymentRepository {
   }
 
   async create(data) {
+    const status = data.status || "PENDING";
+    const createData = {
+      amountCents: Number(data.amountCents),
+      method: data.method || "PIX",
+      status,
+      type: data.type || "MENSALIDADE",
+    };
+
+    if (data.companyId) {
+      createData.company = { connect: { id: Number(data.companyId) } };
+    }
+    if (data.monthlyFeeId) {
+      createData.monthlyFee = { connect: { id: Number(data.monthlyFeeId) } };
+    }
+    if (data.userId) {
+      createData.User = { connect: { id: Number(data.userId) } };
+    }
+    if (data.saleId) {
+      createData.sale = { connect: { id: Number(data.saleId) } };
+    }
+
     return await prisma.payment.create({
-      data: {
-        amountCents: Number(data.amountCents),
-        method: data.method || "PIX",
-        status: data.status || "PENDING",
-        companyId: data.companyId ? Number(data.companyId) : null,
-        monthlyFeeId: data.monthlyFeeId ? Number(data.monthlyFeeId) : null,
-        userId: data.userId ? Number(data.userId) : null,
-        saleId: data.saleId ? Number(data.saleId) : null,
-        type: data.type || "MENSALIDADE",
+      data: createData,
+      include: {
+        company: { select: { id: true, name: true } },
       },
     });
   }
