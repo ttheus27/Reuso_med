@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Invoice {
-  id           Int          @id @default(autoincrement())
+  id           Int         @id @default(autoincrement())
   companyId    Int
   monthlyFeeId Int?
   amountCents  Int
@@ -16,13 +16,13 @@ model Invoice {
   dueDate      DateTime
   periodYear   Int
   periodMonth  Int
-  status       String       @default("PENDING")
+  status       String      @default("PENDING")
   paidAt       DateTime?
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
-  isFuture     Boolean      @default(false)
-  company      Company      @relation(fields: [companyId], references: [id])
-  monthlyFee   MonthlyFee?  @relation(fields: [monthlyFeeId], references: [id])
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  isFuture     Boolean     @default(false)
+  monthlyFee   MonthlyFee? @relation(fields: [monthlyFeeId], references: [id])
+  company      Company     @relation(fields: [companyId], references: [id])
 
   @@index([status, dueDate])
   @@index([companyId])
@@ -38,10 +38,10 @@ model User {
   createdAt      DateTime  @default(now())
   cpf            String?   @unique
   phoneNumber    String?
-  csCompanies    Company[] @relation("CsCompanies")
-  ownedCompanies Company[] @relation("OwnerCompanies")
-  soldCompanies  Company[] @relation("SellerCompanies")
   Company        Company[]
+  soldCompanies  Company[] @relation("SellerCompanies")
+  ownedCompanies Company[] @relation("OwnerCompanies")
+  csCompanies    Company[] @relation("CsCompanies")
   payments       Payment[]
   sales          Sale[]
   tasksAssigned  Task[]
@@ -69,10 +69,10 @@ model Company {
   csId               Int?
   userId             Int?
   website            String?
-  cs                 User?        @relation("CsCompanies", fields: [csId], references: [id])
-  owner              User         @relation("OwnerCompanies", fields: [ownerId], references: [id])
-  seller             User?        @relation("SellerCompanies", fields: [sellerId], references: [id])
   User               User?        @relation(fields: [userId], references: [id])
+  seller             User?        @relation("SellerCompanies", fields: [sellerId], references: [id])
+  owner              User         @relation("OwnerCompanies", fields: [ownerId], references: [id])
+  cs                 User?        @relation("CsCompanies", fields: [csId], references: [id])
   invoices           Invoice[]
   monthlyFees        MonthlyFee[]
   payments           Payment[]
@@ -112,20 +112,20 @@ model Sale {
 }
 
 model Payment {
-  id           Int          @id @default(autoincrement())
+  id           Int         @id @default(autoincrement())
   userId       Int?
-  status       String       @default("PENDING")
-  createdAt    DateTime     @default(now())
+  status       String      @default("PENDING")
+  createdAt    DateTime    @default(now())
   amountCents  Int
   companyId    Int?
-  method       String       @default("PIX")
+  method       String      @default("PIX")
   monthlyFeeId Int?
   saleId       Int?
-  type         String       @default("VENDA")
-  company      Company?     @relation(fields: [companyId], references: [id])
-  monthlyFee   MonthlyFee?  @relation(fields: [monthlyFeeId], references: [id])
-  sale         Sale?        @relation(fields: [saleId], references: [id])
-  User         User?        @relation(fields: [userId], references: [id])
+  type         String      @default("VENDA")
+  User         User?       @relation(fields: [userId], references: [id])
+  sale         Sale?       @relation(fields: [saleId], references: [id])
+  monthlyFee   MonthlyFee? @relation(fields: [monthlyFeeId], references: [id])
+  company      Company?    @relation(fields: [companyId], references: [id])
 
   @@index([companyId], map: "Payment_companyId_fkey")
   @@index([monthlyFeeId], map: "Payment_monthlyFeeId_fkey")
@@ -152,8 +152,8 @@ model Task {
   lastResumeAt       DateTime?
   pausedAt           DateTime?
   totalTimeWorked    Int       @default(0)
-  assignee           User?     @relation(fields: [assigneeId], references: [id])
   company            Company   @relation(fields: [companyId], references: [id])
+  assignee           User?     @relation(fields: [assigneeId], references: [id])
 
   @@index([companyId, status])
   @@index([assigneeId])

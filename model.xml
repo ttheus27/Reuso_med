@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+    <properties>
+        <graphics key="autolayoutconstraints" value="false"/>
+        <graphics key="legendautolayout" value="true"/>
+        <graphics key="showconstraints" value="true"/>
+        <graphics key="showshortnames" value="false"/>
+        <graphics key="layout" value="horizontal"/>
+        <graphics key="showcollapsedconstraints" value="true"/>
+        <graphics key="legendhidden" value="false"/>
+        <graphics key="layoutalgorithm" value="1"/>
+    </properties>
+
+    <struct>
+        <and abstract="true" mandatory="true" name="DashboardLPS">
+            <graphics key="collapsed" value="false"/>
+
+            <!-- Módulo Core do Sistema (Obrigatório) -->
+            <and abstract="true" mandatory="true" name="CoreModule">
+                <feature mandatory="true" name="CompanyManagement"/>
+                <feature mandatory="true" name="UserAuthRBAC"/>
+                <alt mandatory="true" name="DatabaseEngine">
+                    <feature name="SQLiteEngine"/>
+                    <feature name="PostgreSQLEngine"/>
+                </alt>
+                <feature name="AuditLogModule"/>
+            </and>
+
+            <!-- Módulo de Gestão Financeira -->
+            <and abstract="true" mandatory="true" name="FinancialModule">
+                <feature mandatory="true" name="InvoiceManagement"/>
+                <feature name="FutureReceivables"/>
+                <feature name="SalesEntry"/>
+
+                <!-- Formas de Pagamento (OR Group) -->
+                <or mandatory="true" name="PaymentMethods">
+                    <feature name="PixPayment"/>
+                    <feature name="BoletoPayment"/>
+                    <feature name="CreditCardPayment"/>
+                </or>
+
+                <!-- Gestão de Cobrança e Inadimplência -->
+                <and name="OverdueCollection">
+                    <!-- Estratégias de Juros (Alternative Group / XOR) -->
+                    <alt mandatory="true" name="InterestStrategies">
+                        <feature name="StandardInterest"/>
+                        <feature name="VipInterest"/>
+                        <feature name="ExemptInterest"/>
+                    </alt>
+                    <feature name="WhatsAppNotification"/>
+                </and>
+
+                <!-- Split e Conciliação -->
+                <feature name="SplitPayment"/>
+                <feature name="GatewayConciliation"/>
+            </and>
+
+            <!-- Módulo Operacional e Tarefas -->
+            <and name="OperationalModule">
+                <feature mandatory="true" name="KanbanBoard"/>
+                <feature name="TimeTrackerRealTime"/>
+
+                <!-- Ordenação de Tarefas (OR Group) -->
+                <or mandatory="true" name="TaskPrioritization">
+                    <feature name="DueDatePriority"/>
+                    <feature name="IdleTimePriority"/>
+                    <feature name="SeverityPriority"/>
+                </or>
+            </and>
+
+            <!-- Módulo de Relatórios e Exportação -->
+            <and abstract="true" mandatory="true" name="ExportModule">
+                <!-- Formatos de Exportação (OR Group) -->
+                <or mandatory="true" name="ExportFormats">
+                    <feature name="CSVExport"/>
+                    <feature name="JSONExport"/>
+                </or>
+            </and>
+
+            <!-- Módulo de Configuração de Produto / Perfis de Mercado (Alternative Group / XOR) -->
+            <alt mandatory="true" name="ProductProfile">
+                <feature name="StarterProfile"/>
+                <feature name="GrowthProfile"/>
+                <feature name="EnterpriseProfile"/>
+            </alt>
+
+            <!-- Customizações e Extensões -->
+            <feature name="CommercialManagement"/>
+            <feature name="WhiteLabelTheme"/>
+        </and>
+    </struct>
+
+    <constraints>
+        <!-- Restrição 1: Perfil Enterprise exige Gestão Comercial e Tema WhiteLabel (Implies, And) -->
+        <rule>
+            <imp>
+                <var>EnterpriseProfile</var>
+                <conj>
+                    <var>CommercialManagement</var>
+                    <var>WhiteLabelTheme</var>
+                </conj>
+            </imp>
+        </rule>
+
+        <!-- Restrição 2: Perfil Starter não pode conter Gestão Comercial (Implies, Not) -->
+        <rule>
+            <imp>
+                <var>StarterProfile</var>
+                <not>
+                    <var>CommercialManagement</var>
+                </not>
+            </imp>
+        </rule>
+
+        <!-- Restrição 3: Perfil Starter não permite Cartão de Crédito (Implies, Not) -->
+        <rule>
+            <imp>
+                <var>StarterProfile</var>
+                <not>
+                    <var>CreditCardPayment</var>
+                </not>
+            </imp>
+        </rule>
+
+        <!-- Restrição 4: Notificação WhatsApp exige Cobrança de Inadimplentes (Implies) -->
+        <rule>
+            <imp>
+                <var>WhatsAppNotification</var>
+                <var>OverdueCollection</var>
+            </imp>
+        </rule>
+
+        <!-- Restrição 5: Juros VIP exclusivo para Perfil Enterprise (Implies) -->
+        <rule>
+            <imp>
+                <var>VipInterest</var>
+                <var>EnterpriseProfile</var>
+            </imp>
+        </rule>
+
+        <!-- Restrição 6: Time Tracker em tempo real exige o quadro Kanban (Implies) -->
+        <rule>
+            <imp>
+                <var>TimeTrackerRealTime</var>
+                <var>KanbanBoard</var>
+            </imp>
+        </rule>
+
+        <!-- Restrição 7: Pagamento por Cartão exige Conciliação de Gateway e Autenticação/RBAC (Implies, And) -->
+        <rule>
+            <imp>
+                <var>CreditCardPayment</var>
+                <conj>
+                    <var>GatewayConciliation</var>
+                    <var>UserAuthRBAC</var>
+                </conj>
+            </imp>
+        </rule>
+
+        <!-- Restrição 8: Exportação JSON requer Perfil Growth ou Enterprise (Implies, Or) -->
+        <rule>
+            <imp>
+                <var>JSONExport</var>
+                <disj>
+                    <var>GrowthProfile</var>
+                    <var>EnterpriseProfile</var>
+                </disj>
+            </imp>
+        </rule>
+
+        <!-- Restrição 9: Previsão de Recebíveis Futuros exige Gestão de Faturas (Implies) -->
+        <rule>
+            <imp>
+                <var>FutureReceivables</var>
+                <var>InvoiceManagement</var>
+            </imp>
+        </rule>
+
+        <!-- Restrição 10: Split de Pagamento exige Pix e Perfil Enterprise (Implies, And) -->
+        <rule>
+            <imp>
+                <var>SplitPayment</var>
+                <conj>
+                    <var>PixPayment</var>
+                    <var>EnterpriseProfile</var>
+                </conj>
+            </imp>
+        </rule>
+
+        <!-- Restrição 11: Perfil Growth exige Kanban e Recebíveis Futuros (Implies, And) -->
+        <rule>
+            <imp>
+                <var>GrowthProfile</var>
+                <conj>
+                    <var>KanbanBoard</var>
+                    <var>FutureReceivables</var>
+                </conj>
+            </imp>
+        </rule>
+
+        <!-- Restrição 12: Auditoria ou Conciliação exige Autenticação e SQLite ou PostgreSQL (Implies, And, Or) -->
+        <rule>
+            <imp>
+                <disj>
+                    <var>AuditLogModule</var>
+                    <var>GatewayConciliation</var>
+                </disj>
+                <conj>
+                    <var>UserAuthRBAC</var>
+                    <disj>
+                        <var>SQLiteEngine</var>
+                        <var>PostgreSQLEngine</var>
+                    </disj>
+                </conj>
+            </imp>
+        </rule>
+
+        <!-- Restrição 13: Gestão Comercial com Tarefas exige Gestão de Empresas (Implies, And) -->
+        <rule>
+            <imp>
+                <conj>
+                    <var>CommercialManagement</var>
+                    <var>OperationalModule</var>
+                </conj>
+                <var>CompanyManagement</var>
+            </imp>
+        </rule>
+
+        <!-- Restrição 14: WhiteLabelTheme não pode coexistir com Perfil Starter (Implies, Not) -->
+        <rule>
+            <imp>
+                <var>WhiteLabelTheme</var>
+                <not>
+                    <var>StarterProfile</var>
+                </not>
+            </imp>
+        </rule>
+    </constraints>
+</featureModel>

@@ -1,0 +1,727 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3620" height="4340" viewBox="0 0 3620 4340">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<rect x="40" y="20" width="3540" height="100" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="1810" y="58" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#000000" text-anchor="middle">Diagrama GQM - Projeto Reuso_med</text>
+<text x="1810" y="98" font-family="Arial, sans-serif" font-size="20" fill="#000000" text-anchor="middle">10 Objetivos -> 30 Questoes -> 120 Metricas | Matheus Silva, Eduardo Martins, Felipe Nathan e Ana Julia</text>
+<rect x="60" y="170" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="82" y="400" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="232" y="445" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O01: Confiabilidade e</text>
+<text x="232" y="473" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Precisão do</text>
+<text x="232" y="501" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Faturamento</text>
+<text x="232" y="529" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="232" y="557" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista: Gestor</text>
+<text x="232" y="585" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Financeiro</text>
+<polyline points="382,560 415,560 415,310 440,310" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="194" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="222" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q01.1</text>
+<text x="454" y="254" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual a taxa de precisão na geração de</text>
+<text x="454" y="278" font-family="Arial, sans-serif" font-size="15" fill="#000000">faturas e mensalidades recorrentes?</text>
+<polyline points="880,310 913,310 913,221 935,221" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="196" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="226" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.1.1: Taxa de faturas geradas sem erro de valor</text>
+<text x="1745" y="226" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 99,8%</text>
+<polyline points="880,310 913,310 913,281 935,281" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="256" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="286" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.1.2: Divergências em viradas de mês (28/30/31 dias)</text>
+<text x="1745" y="286" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 0</text>
+<polyline points="880,310 913,310 913,341 935,341" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="316" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="346" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.1.3: Percentual de mensalidades ativas faturadas no prazo</text>
+<text x="1745" y="346" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,310 913,310 913,401 935,401" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="376" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="406" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.1.4: Tempo médio de emissão/processamento de lote</text>
+<text x="1745" y="406" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 3,0 s</text>
+<polyline points="382,560 415,560 415,560 440,560" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="444" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="472" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q01.2</text>
+<text x="454" y="504" font-family="Arial, sans-serif" font-size="15" fill="#000000">Como está a integridade das baixas</text>
+<text x="454" y="528" font-family="Arial, sans-serif" font-size="15" fill="#000000">manuais e cancelamentos?</text>
+<polyline points="880,560 913,560 913,471 935,471" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="446" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="476" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.2.1: Baixas com timestamp paidAt consistente</text>
+<text x="1745" y="476" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,560 913,560 913,531 935,531" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="506" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="536" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.2.2: Taxa de faturas canceladas por erro operacional</text>
+<text x="1745" y="536" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 1,5%</text>
+<polyline points="880,560 913,560 913,591 935,591" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="566" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="596" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.2.3: Índice de retrabalho em faturas após emissão</text>
+<text x="1745" y="596" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 2,0%</text>
+<polyline points="880,560 913,560 913,651 935,651" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="626" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="656" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.2.4: Cobertura de validação monetária em centavos</text>
+<text x="1745" y="656" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="382,560 415,560 415,810 440,810" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="694" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="722" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q01.3</text>
+<text x="454" y="754" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual a aderência do calendário</text>
+<text x="454" y="778" font-family="Arial, sans-serif" font-size="15" fill="#000000">FullCalendar ao estado real do banco?</text>
+<polyline points="880,810 913,810 913,721 935,721" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="696" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="726" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.3.1: Sincronismo entre eventos do calendário e Invoice</text>
+<text x="1745" y="726" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,810 913,810 913,781 935,781" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="756" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="786" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.3.2: Tempo de resposta da listagem mensal de faturas</text>
+<text x="1745" y="786" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 350 ms</text>
+<polyline points="880,810 913,810 913,841 935,841" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="816" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="846" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.3.3: Adoção dos filtros por competência e status</text>
+<text x="1745" y="846" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 65%</text>
+<polyline points="880,810 913,810 913,901 935,901" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="876" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="906" font-family="Arial, sans-serif" font-size="14" fill="#000000">M01.3.4: Incidentes reportados na visão Tabela/Calendário</text>
+<text x="1745" y="906" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 1</text>
+<rect x="1840" y="170" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="1862" y="400" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="2012" y="445" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O02: Eficiência na</text>
+<text x="2012" y="473" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Recuperação de</text>
+<text x="2012" y="501" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Inadimplência</text>
+<text x="2012" y="529" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="2012" y="557" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista: Equipe de</text>
+<text x="2012" y="585" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Cobrança</text>
+<polyline points="2162,560 2195,560 2195,310 2220,310" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="194" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="222" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q02.1</text>
+<text x="2234" y="254" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual o impacto dos acionamentos via</text>
+<text x="2234" y="278" font-family="Arial, sans-serif" font-size="15" fill="#000000">WhatsApp (wa.me) na recuperação?</text>
+<polyline points="2660,310 2693,310 2693,221 2715,221" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="196" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="226" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.1.1: Taxa de recuperação pós-disparo wa.me</text>
+<text x="3525" y="226" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 45%</text>
+<polyline points="2660,310 2693,310 2693,281 2715,281" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="256" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="286" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.1.2: Prazo médio de regularização após cobrança</text>
+<text x="3525" y="286" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 4,0 d</text>
+<polyline points="2660,310 2693,310 2693,341 2715,341" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="316" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="346" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.1.3: Volume de acionamentos wa.me realizados</text>
+<text x="3525" y="346" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 80% atrasos</text>
+<polyline points="2660,310 2693,310 2693,401 2715,401" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="376" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="406" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.1.4: Percentual de contatos WhatsApp válidos higienizados</text>
+<text x="3525" y="406" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 95%</text>
+<polyline points="2162,560 2195,560 2195,560 2220,560" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="444" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="472" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q02.2</text>
+<text x="2234" y="504" font-family="Arial, sans-serif" font-size="15" fill="#000000">As estratégias de juros (Standard,</text>
+<text x="2234" y="528" font-family="Arial, sans-serif" font-size="15" fill="#000000">VIP, Exempt) calculam com acurácia?</text>
+<polyline points="2660,560 2693,560 2693,471 2715,471" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="446" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="476" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.2.1: Acurácia no cálculo de multa (2%) e juros (1% a.m.)</text>
+<text x="3525" y="476" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="2660,560 2693,560 2693,531 2715,531" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="506" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="536" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.2.2: Volume renegociado via estratégia VIP vs. Isenta</text>
+<text x="3525" y="536" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Monitorado</text>
+<polyline points="2660,560 2693,560 2693,591 2715,591" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="566" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="596" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.2.3: Desvio entre juros do backend e exibidos na UI</text>
+<text x="3525" y="596" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: R$ 0,00</text>
+<polyline points="2660,560 2693,560 2693,651 2715,651" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="626" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="656" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.2.4: Tempo de troca dinâmica de estratégia em tela</text>
+<text x="3525" y="656" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 250 ms</text>
+<polyline points="2162,560 2195,560 2195,810 2220,810" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="694" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="722" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q02.3</text>
+<text x="2234" y="754" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual a evolução da carteira</text>
+<text x="2234" y="778" font-family="Arial, sans-serif" font-size="15" fill="#000000">inadimplente da empresa?</text>
+<polyline points="2660,810 2693,810 2693,721 2715,721" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="696" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="726" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.3.1: Taxa global de inadimplência mensal</text>
+<text x="3525" y="726" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 6,0%</text>
+<polyline points="2660,810 2693,810 2693,781 2715,781" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="756" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="786" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.3.2: Ticket médio das faturas em atraso</text>
+<text x="3525" y="786" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Monitorado</text>
+<polyline points="2660,810 2693,810 2693,841 2715,841" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="816" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="846" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.3.3: Idade média (aging) das dívidas em aberto</text>
+<text x="3525" y="846" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 15 d</text>
+<polyline points="2660,810 2693,810 2693,901 2715,901" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="876" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="906" font-family="Arial, sans-serif" font-size="14" fill="#000000">M02.3.4: Taxa de reincidência trimestral de clientes</text>
+<text x="3525" y="906" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 8,0%</text>
+<rect x="60" y="1000" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="82" y="1230" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="232" y="1275" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O03: Agilidade e</text>
+<text x="232" y="1303" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Confiabilidade na</text>
+<text x="232" y="1331" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Conciliação de</text>
+<text x="232" y="1359" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Pagamentos</text>
+<text x="232" y="1387" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="232" y="1415" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista: Analista</text>
+<text x="232" y="1443" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Financeiro</text>
+<polyline points="382,1390 415,1390 415,1140 440,1140" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="1024" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="1052" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q03.1</text>
+<text x="454" y="1084" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual a distribuição e eficiência dos</text>
+<text x="454" y="1108" font-family="Arial, sans-serif" font-size="15" fill="#000000">meios de pagamento (PIX, Boleto,</text>
+<text x="454" y="1132" font-family="Arial, sans-serif" font-size="15" fill="#000000">Cartão)?</text>
+<polyline points="880,1140 913,1140 913,1051 935,1051" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1026" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1056" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.1.1: Participação percentual por meio de pagamento</text>
+<text x="1745" y="1056" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: PIX ≥ 60%</text>
+<polyline points="880,1140 913,1140 913,1111 935,1111" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1086" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1116" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.1.2: Taxa de liquidação imediata via PIX</text>
+<text x="1745" y="1116" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 98%</text>
+<polyline points="880,1140 913,1140 913,1171 935,1171" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1146" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1176" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.1.3: Custo médio de taxa de gateway por método</text>
+<text x="1745" y="1176" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Redução 10%</text>
+<polyline points="880,1140 913,1140 913,1231 935,1231" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1206" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1236" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.1.4: Receita líquida consolidada após taxas</text>
+<text x="1745" y="1236" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Monitorado</text>
+<polyline points="382,1390 415,1390 415,1390 440,1390" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="1274" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="1302" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q03.2</text>
+<text x="454" y="1334" font-family="Arial, sans-serif" font-size="15" fill="#000000">A conciliação entre Payment e Invoice</text>
+<text x="454" y="1358" font-family="Arial, sans-serif" font-size="15" fill="#000000">mantém integridade atômica?</text>
+<polyline points="880,1390 913,1390 913,1301 935,1301" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1276" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1306" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.2.1: Pagamentos conciliados sem fatura órfã</text>
+<text x="1745" y="1306" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,1390 913,1390 913,1361 935,1361" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1336" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1366" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.2.2: Ocorrências de falha de transação Prisma no mês</text>
+<text x="1745" y="1366" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 0</text>
+<polyline points="880,1390 913,1390 913,1421 935,1421" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1396" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1426" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.2.3: Tempo entre registro e atualização para PAID</text>
+<text x="1745" y="1426" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 200 ms</text>
+<polyline points="880,1390 913,1390 913,1481 935,1481" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1456" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1486" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.2.4: Pagamentos com vínculo relacional completo</text>
+<text x="1745" y="1486" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="382,1390 415,1390 415,1640 440,1640" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="1524" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="1552" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q03.3</text>
+<text x="454" y="1584" font-family="Arial, sans-serif" font-size="15" fill="#000000">Quão eficiente é o processo de</text>
+<text x="454" y="1608" font-family="Arial, sans-serif" font-size="15" fill="#000000">auditoria e conferência financeira?</text>
+<polyline points="880,1640 913,1640 913,1551 935,1551" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1526" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1556" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.3.1: Tempo médio para lançar/conciliar pagamento manual</text>
+<text x="1745" y="1556" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 25 s</text>
+<polyline points="880,1640 913,1640 913,1611 935,1611" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1586" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1616" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.3.2: Taxa de pagamentos pendentes há mais de 48h</text>
+<text x="1745" y="1616" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 5,0%</text>
+<polyline points="880,1640 913,1640 913,1671 935,1671" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1646" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1676" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.3.3: Cobertura de logs AuditLog nas liquidações</text>
+<text x="1745" y="1676" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,1640 913,1640 913,1731 935,1731" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1706" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1736" font-family="Arial, sans-serif" font-size="14" fill="#000000">M03.3.4: Índice de divergência contábil no fechamento</text>
+<text x="1745" y="1736" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 0,0%</text>
+<rect x="1840" y="1000" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="1862" y="1230" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="2012" y="1275" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O04: Produtividade</text>
+<text x="2012" y="1303" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Operacional no Kanban</text>
+<text x="2012" y="1331" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">e Time Tracker</text>
+<text x="2012" y="1359" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="2012" y="1387" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista: Gestor</text>
+<text x="2012" y="1415" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Operacional</text>
+<polyline points="2162,1390 2195,1390 2195,1140 2220,1140" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="1024" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="1052" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q04.1</text>
+<text x="2234" y="1084" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual a vazão e eficiência do fluxo</text>
+<text x="2234" y="1108" font-family="Arial, sans-serif" font-size="15" fill="#000000">Kanban (ABERTA → CONCLUIDA)?</text>
+<polyline points="2660,1140 2693,1140 2693,1051 2715,1051" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1026" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1056" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.1.1: Throughput semanal de tarefas concluídas</text>
+<text x="3525" y="1056" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 15</text>
+<polyline points="2660,1140 2693,1140 2693,1111 2715,1111" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1086" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1116" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.1.2: Lead time médio das tarefas operacionais</text>
+<text x="3525" y="1116" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 48 h</text>
+<polyline points="2660,1140 2693,1140 2693,1171 2715,1171" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1146" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1176" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.1.3: Cycle time efetivo (totalTimeWorked) por prioridade</text>
+<text x="3525" y="1176" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Monitorado</text>
+<polyline points="2660,1140 2693,1140 2693,1231 2715,1231" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1206" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1236" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.1.4: Taxa de entregas dentro do prazo (dueDate)</text>
+<text x="3525" y="1236" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 90%</text>
+<polyline points="2162,1390 2195,1390 2195,1390 2220,1390" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="1274" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="1302" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q04.2</text>
+<text x="2234" y="1334" font-family="Arial, sans-serif" font-size="15" fill="#000000">O cronômetro e o TaskWorkflowTemplate</text>
+<text x="2234" y="1358" font-family="Arial, sans-serif" font-size="15" fill="#000000">registram horas sem perdas?</text>
+<polyline points="2660,1390 2693,1390 2693,1301 2715,1301" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1276" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1306" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.2.1: Precisão do cálculo delta após reload da página</text>
+<text x="3525" y="1306" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="2660,1390 2693,1390 2693,1361 2715,1361" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1336" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1366" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.2.2: Transições inválidas bloqueadas pelo Template Method</text>
+<text x="3525" y="1366" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100% barradas</text>
+<polyline points="2660,1390 2693,1390 2693,1421 2715,1421" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1396" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1426" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.2.3: Tarefas concluídas com apontamento válido (&gt; 0 min)</text>
+<text x="3525" y="1426" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 95%</text>
+<polyline points="2660,1390 2693,1390 2693,1481 2715,1481" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1456" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1486" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.2.4: Taxa de falha em anexos de evidências de tarefas</text>
+<text x="3525" y="1486" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 1,0%</text>
+<polyline points="2162,1390 2195,1390 2195,1640 2220,1640" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="1524" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="1552" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q04.3</text>
+<text x="2234" y="1584" font-family="Arial, sans-serif" font-size="15" fill="#000000">As estratégias de ordenação</text>
+<text x="2234" y="1608" font-family="Arial, sans-serif" font-size="15" fill="#000000">(TaskPriorityStrategy) reduzem</text>
+<text x="2234" y="1632" font-family="Arial, sans-serif" font-size="15" fill="#000000">gargalos?</text>
+<polyline points="2660,1640 2693,1640 2693,1551 2715,1551" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1526" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1556" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.3.1: Tempo médio de ociosidade de tarefas paradas</text>
+<text x="3525" y="1556" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 12 h</text>
+<polyline points="2660,1640 2693,1640 2693,1611 2715,1611" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1586" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1616" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.3.2: Redução de tarefas ALTA prioridade vencidas</text>
+<text x="3525" y="1616" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 30%</text>
+<polyline points="2660,1640 2693,1640 2693,1671 2715,1671" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1646" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1676" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.3.3: Frequência de uso das estratégias de ordenação</text>
+<text x="3525" y="1676" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 20</text>
+<polyline points="2660,1640 2693,1640 2693,1731 2715,1731" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1706" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1736" font-family="Arial, sans-serif" font-size="14" fill="#000000">M04.3.4: WIP médio (Work In Progress) por operador</text>
+<text x="3525" y="1736" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 3</text>
+<rect x="60" y="1830" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="82" y="2060" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="232" y="2105" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O05: Reutilização de</text>
+<text x="232" y="2133" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Ativos GoF e</text>
+<text x="232" y="2161" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Variabilidade da LPS</text>
+<text x="232" y="2189" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="232" y="2217" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista: Arquiteto</text>
+<text x="232" y="2245" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">de Software</text>
+<polyline points="382,2220 415,2220 415,1970 440,1970" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="1854" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="1882" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q05.1</text>
+<text x="454" y="1914" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual o nível de reaproveitamento das</text>
+<text x="454" y="1938" font-family="Arial, sans-serif" font-size="15" fill="#000000">10 classes core/ e padrões GoF?</text>
+<polyline points="880,1970 913,1970 913,1881 935,1881" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1856" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1886" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.1.1: Telas CRUD consumindo ativos de core/ e patterns/</text>
+<text x="1745" y="1886" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,1970 913,1970 913,1941 935,1941" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1916" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="1946" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.1.2: Taxa global de reúso de código na aplicação</text>
+<text x="1745" y="1946" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 70%</text>
+<polyline points="880,1970 913,1970 913,2001 935,2001" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="1976" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2006" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.1.3: Instâncias ativas de PrismaClient (Singleton)</text>
+<text x="1745" y="2006" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 1</text>
+<polyline points="880,1970 913,1970 913,2061 935,2061" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2036" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2066" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.1.4: Redução de código duplicado via Template/Strategy</text>
+<text x="1745" y="2066" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 40%</text>
+<polyline points="382,2220 415,2220 415,2220 440,2220" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="2104" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="2132" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q05.2</text>
+<text x="454" y="2164" font-family="Arial, sans-serif" font-size="15" fill="#000000">Quão eficaz é a variabilidade em</text>
+<text x="454" y="2188" font-family="Arial, sans-serif" font-size="15" fill="#000000">runtime (Starter, Growth, VIP)?</text>
+<polyline points="880,2220 913,2220 913,2131 935,2131" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2106" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2136" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.2.1: Componentes de UI compartilhados entre perfis LPS</text>
+<text x="1745" y="2136" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 90%</text>
+<polyline points="880,2220 913,2220 913,2191 935,2191" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2166" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2196" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.2.2: Tempo para derivar/configurar um perfil comercial</text>
+<text x="1745" y="2196" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 1 min</text>
+<polyline points="880,2220 913,2220 913,2251 935,2251" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2226" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2256" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.2.3: Conflitos de restrição no modelo FeatureIDE</text>
+<text x="1745" y="2256" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 0</text>
+<polyline points="880,2220 913,2220 913,2311 935,2311" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2286" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2316" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.2.4: Cobertura de Pontos de Variação (VP1 a VP5) ativos</text>
+<text x="1745" y="2316" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="382,2220 415,2220 415,2470 440,2470" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="2354" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="2382" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q05.3</text>
+<text x="454" y="2414" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual a maturidade nos processos MPS.BR</text>
+<text x="454" y="2438" font-family="Arial, sans-serif" font-size="15" fill="#000000">(GRU e DRU)?</text>
+<polyline points="880,2470 913,2470 913,2381 935,2381" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2356" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2386" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.3.1: Conformidade nos resultados esperados GRU/DRU</text>
+<text x="1745" y="2386" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 80%</text>
+<polyline points="880,2470 913,2470 913,2441 935,2441" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2416" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2446" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.3.2: Registro de utilização de ativos reutilizáveis (GRU 3)</text>
+<text x="1745" y="2446" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 85%</text>
+<polyline points="880,2470 913,2470 913,2501 935,2501" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2476" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2506" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.3.3: Esforço economizado na construção de novos módulos</text>
+<text x="1745" y="2506" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 60 h</text>
+<polyline points="880,2470 913,2470 913,2561 935,2561" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2536" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2566" font-family="Arial, sans-serif" font-size="14" fill="#000000">M05.3.4: Novas estratégias/formatos plugados sem alterar base...</text>
+<text x="1745" y="2566" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100% OCP</text>
+<rect x="1840" y="1830" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="1862" y="2060" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="2012" y="2105" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O06: Manutenibilidade</text>
+<text x="2012" y="2133" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">e Qualidade Estrutural</text>
+<text x="2012" y="2161" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">do Código</text>
+<text x="2012" y="2189" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="2012" y="2217" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista: Equipe de</text>
+<text x="2012" y="2245" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Engenharia (Matheus,</text>
+<text x="2012" y="2273" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Eduardo, Felipe, Ana</text>
+<text x="2012" y="2301" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Júlia)</text>
+<polyline points="2162,2220 2195,2220 2195,1970 2220,1970" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="1854" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="1882" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q06.1</text>
+<text x="2234" y="1914" font-family="Arial, sans-serif" font-size="15" fill="#000000">Como está a complexidade e acoplamento</text>
+<text x="2234" y="1938" font-family="Arial, sans-serif" font-size="15" fill="#000000">entre as camadas?</text>
+<polyline points="2660,1970 2693,1970 2693,1881 2715,1881" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1856" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1886" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.1.1: Complexidade ciclomática média em services/ e patterns/</text>
+<text x="3525" y="1886" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 6</text>
+<polyline points="2660,1970 2693,1970 2693,1941 2715,1941" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1916" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="1946" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.1.2: Acoplamento direto UI → Prisma (bypass de camadas)</text>
+<text x="3525" y="1946" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 0</text>
+<polyline points="2660,1970 2693,1970 2693,2001 2715,2001" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="1976" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2006" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.1.3: Endpoints refatorados em Controller → Service → Repo</text>
+<text x="3525" y="2006" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 85%</text>
+<polyline points="2660,1970 2693,1970 2693,2061 2715,2061" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2036" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2066" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.1.4: Tamanho médio dos arquivos de domínio e padrões</text>
+<text x="3525" y="2066" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 90</text>
+<polyline points="2162,2220 2195,2220 2195,2220 2220,2220" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="2104" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="2132" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q06.2</text>
+<text x="2234" y="2164" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual a incidência de defeitos e</text>
+<text x="2234" y="2188" font-family="Arial, sans-serif" font-size="15" fill="#000000">retrabalho nas Sprints?</text>
+<polyline points="2660,2220 2693,2220 2693,2131 2715,2131" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2106" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2136" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.2.1: Densidade de defeitos por KLOC entregue</text>
+<text x="3525" y="2136" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 1,5</text>
+<polyline points="2660,2220 2693,2220 2693,2191 2715,2191" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2166" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2196" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.2.2: Taxa de retrabalho em histórias após revisão</text>
+<text x="3525" y="2196" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 8%</text>
+<polyline points="2660,2220 2693,2220 2693,2251 2715,2251" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2226" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2256" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.2.3: Tempo médio para correção de defeitos (MTTR)</text>
+<text x="3525" y="2256" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 8 h</text>
+<polyline points="2660,2220 2693,2220 2693,2311 2715,2311" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2286" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2316" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.2.4: Erros de lint (ESLint) pendentes na branch principal</text>
+<text x="3525" y="2316" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 0 erros</text>
+<polyline points="2162,2220 2195,2220 2195,2470 2220,2470" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="2354" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="2382" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q06.3</text>
+<text x="2234" y="2414" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual o nível de testes, documentação e</text>
+<text x="2234" y="2438" font-family="Arial, sans-serif" font-size="15" fill="#000000">previsibilidade de entrega?</text>
+<polyline points="2660,2470 2693,2470 2693,2381 2715,2381" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2356" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2386" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.3.1: Cobertura de testes nas 10 entidades core/ e GoF</text>
+<text x="3525" y="2386" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 80%</text>
+<polyline points="2660,2470 2693,2470 2693,2441 2715,2441" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2416" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2446" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.3.2: Conformidade de docstrings e documentação técnica</text>
+<text x="3525" y="2446" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 90%</text>
+<polyline points="2660,2470 2693,2470 2693,2501 2715,2501" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2476" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2506" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.3.3: Regras de negócio isoladas fora dos componentes React</text>
+<text x="3525" y="2506" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 90%</text>
+<polyline points="2660,2470 2693,2470 2693,2561 2715,2561" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2536" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2566" font-family="Arial, sans-serif" font-size="14" fill="#000000">M06.3.4: Índice de previsibilidade da Sprint (Velocity)</text>
+<text x="3525" y="2566" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 90%</text>
+<rect x="60" y="2660" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="82" y="2890" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="232" y="2935" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O07: Segurança,</text>
+<text x="232" y="2963" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Integridade de Dados e</text>
+<text x="232" y="2991" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Controle RBAC</text>
+<text x="232" y="3019" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="232" y="3047" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista:</text>
+<text x="232" y="3075" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Responsável de Segurança</text>
+<text x="232" y="3103" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">/ Administrador</text>
+<polyline points="382,3050 415,3050 415,2800 440,2800" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="2684" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="2712" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q07.1</text>
+<text x="454" y="2744" font-family="Arial, sans-serif" font-size="15" fill="#000000">O controle de acesso RBAC protege</text>
+<text x="454" y="2768" font-family="Arial, sans-serif" font-size="15" fill="#000000">rotas administrativas e APIs?</text>
+<polyline points="880,2800 913,2800 913,2711 935,2711" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2686" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2716" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.1.1: Rotas /admin/* e /api/* protegidas por JWT/RBAC</text>
+<text x="1745" y="2716" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,2800 913,2800 913,2771 935,2771" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2746" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2776" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.1.2: Tentativas de acesso não autorizado bloqueadas</text>
+<text x="1745" y="2776" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100% bloqueio</text>
+<polyline points="880,2800 913,2800 913,2831 935,2831" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2806" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2836" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.1.3: Senhas armazenadas com hash seguro (bcrypt)</text>
+<text x="1745" y="2836" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,2800 913,2800 913,2891 935,2891" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2866" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2896" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.1.4: Tempo de expiração e rotação da sessão JWT</text>
+<text x="1745" y="2896" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 24 h</text>
+<polyline points="382,3050 415,3050 415,3050 440,3050" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="2934" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="2962" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q07.2</text>
+<text x="454" y="2994" font-family="Arial, sans-serif" font-size="15" fill="#000000">A integridade dos dados financeiros e</text>
+<text x="454" y="3018" font-family="Arial, sans-serif" font-size="15" fill="#000000">cadastrais está blindada?</text>
+<polyline points="880,3050 913,3050 913,2961 935,2961" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2936" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="2966" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.2.1: Falhas de estouro numérico (overflow 32-bit) em vendas</text>
+<text x="1745" y="2966" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 0</text>
+<polyline points="880,3050 913,3050 913,3021 935,3021" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="2996" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3026" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.2.2: Validação de unicidade de CPF/E-mail e CNPJ</text>
+<text x="1745" y="3026" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,3050 913,3050 913,3081 935,3081" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3056" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3086" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.2.3: Operações financeiras críticas registradas em AuditLog</text>
+<text x="1745" y="3086" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,3050 913,3050 913,3141 935,3141" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3116" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3146" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.2.4: Integridade referencial sem registros órfãos no SQLite</text>
+<text x="1745" y="3146" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 0</text>
+<polyline points="382,3050 415,3050 415,3300 440,3300" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="3184" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="3212" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q07.3</text>
+<text x="454" y="3244" font-family="Arial, sans-serif" font-size="15" fill="#000000">Quão seguro é o armazenamento de</text>
+<text x="454" y="3268" font-family="Arial, sans-serif" font-size="15" fill="#000000">contratos PDF e suspensão de contas?</text>
+<polyline points="880,3300 913,3300 913,3211 935,3211" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3186" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3216" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.3.1: Uploads validados por MIME type (PDF) e tamanho</text>
+<text x="1745" y="3216" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,3300 913,3300 913,3271 935,3271" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3246" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3276" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.3.2: Taxa de falha ou arquivo corrompido em contratos</text>
+<text x="1745" y="3276" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 0,5%</text>
+<polyline points="880,3300 913,3300 913,3331 935,3331" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3306" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3336" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.3.3: Contratos acessados apenas por sessão autenticada</text>
+<text x="1745" y="3336" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,3300 913,3300 913,3391 935,3391" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3366" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3396" font-family="Arial, sans-serif" font-size="14" fill="#000000">M07.3.4: Tempo para efetivação da suspensão (toggleSuspend)</text>
+<text x="1745" y="3396" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 2,0 s</text>
+<rect x="1840" y="2660" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="1862" y="2890" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="2012" y="2935" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O08: Desempenho e</text>
+<text x="2012" y="2963" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Experiência do Usuário</text>
+<text x="2012" y="2991" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">(UX)</text>
+<text x="2012" y="3019" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="2012" y="3047" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista:</text>
+<text x="2012" y="3075" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Operadores e Usuários</text>
+<text x="2012" y="3103" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Finais</text>
+<polyline points="2162,3050 2195,3050 2195,2800 2220,2800" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="2684" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="2712" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q08.1</text>
+<text x="2234" y="2744" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual a velocidade de carregamento das</text>
+<text x="2234" y="2768" font-family="Arial, sans-serif" font-size="15" fill="#000000">telas e APIs críticas?</text>
+<polyline points="2660,2800 2693,2800 2693,2711 2715,2711" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2686" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2716" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.1.1: Latência média das APIs de listagem (p95)</text>
+<text x="3525" y="2716" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 300 ms</text>
+<polyline points="2660,2800 2693,2800 2693,2771 2715,2771" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2746" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2776" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.1.2: Largest Contentful Paint (LCP) das telas /admin/*</text>
+<text x="3525" y="2776" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 2,0 s</text>
+<polyline points="2660,2800 2693,2800 2693,2831 2715,2831" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2806" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2836" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.1.3: Tempo de renderização dos gráficos do Dashboard</text>
+<text x="3525" y="2836" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 500 ms</text>
+<polyline points="2660,2800 2693,2800 2693,2891 2715,2891" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2866" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2896" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.1.4: Taxa de erros HTTP 5xx nas APIs</text>
+<text x="3525" y="2896" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 0,1%</text>
+<polyline points="2162,3050 2195,3050 2195,3050 2220,3050" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="2934" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="2962" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q08.2</text>
+<text x="2234" y="2994" font-family="Arial, sans-serif" font-size="15" fill="#000000">Os fluxos de cadastro e busca são</text>
+<text x="2234" y="3018" font-family="Arial, sans-serif" font-size="15" fill="#000000">ágeis para o operador?</text>
+<polyline points="2660,3050 2693,3050 2693,2961 2715,2961" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2936" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="2966" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.2.1: Tempo médio para cadastrar empresa no Drawer</text>
+<text x="3525" y="2966" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 45 s</text>
+<polyline points="2660,3050 2693,3050 2693,3021 2715,3021" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="2996" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3026" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.2.2: Taxa de erro de preenchimento em formulários</text>
+<text x="3525" y="3026" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 5%</text>
+<polyline points="2660,3050 2693,3050 2693,3081 2715,3081" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3056" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3086" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.2.3: Latência da busca dinâmica por nome/CNPJ</text>
+<text x="3525" y="3086" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 150 ms</text>
+<polyline points="2660,3050 2693,3050 2693,3141 2715,3141" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3116" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3146" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.2.4: Número médio de cliques para lançar pagamento/venda</text>
+<text x="3525" y="3146" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 4 cliques</text>
+<polyline points="2162,3050 2195,3050 2195,3300 2220,3300" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="3184" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="3212" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q08.3</text>
+<text x="2234" y="3244" font-family="Arial, sans-serif" font-size="15" fill="#000000">A aplicação mantém estabilidade e</text>
+<text x="2234" y="3268" font-family="Arial, sans-serif" font-size="15" fill="#000000">responsividade contínua?</text>
+<polyline points="2660,3300 2693,3300 2693,3211 2715,3211" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3186" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3216" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.3.1: Disponibilidade (Uptime) da plataforma em operação</text>
+<text x="3525" y="3216" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 99,5%</text>
+<polyline points="2660,3300 2693,3300 2693,3271 2715,3271" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3246" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3276" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.3.2: Sessões com erro de JavaScript no cliente</text>
+<text x="3525" y="3276" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 0,5%</text>
+<polyline points="2660,3300 2693,3300 2693,3331 2715,3331" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3306" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3336" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.3.3: Pontuação de acessibilidade/responsividade UI</text>
+<text x="3525" y="3336" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 90 pts</text>
+<polyline points="2660,3300 2693,3300 2693,3391 2715,3391" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3366" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3396" font-family="Arial, sans-serif" font-size="14" fill="#000000">M08.3.4: Consumo médio de memória do processo Next.js</text>
+<text x="3525" y="3396" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 512 MB</text>
+<rect x="60" y="3490" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="82" y="3720" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="232" y="3765" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O09: Previsibilidade</text>
+<text x="232" y="3793" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">de Receita e</text>
+<text x="232" y="3821" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Planejamento</text>
+<text x="232" y="3849" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Financeiro</text>
+<text x="232" y="3877" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="232" y="3905" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista: Diretoria</text>
+<text x="232" y="3933" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">/ CEO</text>
+<polyline points="382,3880 415,3880 415,3630 440,3630" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="3514" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="3542" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q09.1</text>
+<text x="454" y="3574" font-family="Arial, sans-serif" font-size="15" fill="#000000">Quão precisas são as projeções futuras</text>
+<text x="454" y="3598" font-family="Arial, sans-serif" font-size="15" fill="#000000">(isFuture) frente ao realizado?</text>
+<polyline points="880,3630 913,3630 913,3541 935,3541" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3516" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3546" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.1.1: Desvio entre receita prevista e realizada (MAPE)</text>
+<text x="1745" y="3546" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 8,0%</text>
+<polyline points="880,3630 913,3630 913,3601 935,3601" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3576" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3606" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.1.2: Horizonte médio de receita futura mapeada</text>
+<text x="1745" y="3606" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 6 meses</text>
+<polyline points="880,3630 913,3630 913,3661 935,3661" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3636" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3666" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.1.3: Contratos MonthlyFee com projeção futura gerada</text>
+<text x="1745" y="3666" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,3630 913,3630 913,3721 935,3721" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3696" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3726" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.1.4: Taxa de cancelamento futuro por rescisão (Churn)</text>
+<text x="1745" y="3726" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 4,0%</text>
+<polyline points="382,3880 415,3880 415,3880 440,3880" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="3764" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="3792" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q09.2</text>
+<text x="454" y="3824" font-family="Arial, sans-serif" font-size="15" fill="#000000">O controle de vendas avulsas e</text>
+<text x="454" y="3848" font-family="Arial, sans-serif" font-size="15" fill="#000000">comissões (/admin/finance) é</text>
+<text x="454" y="3872" font-family="Arial, sans-serif" font-size="15" fill="#000000">confiável?</text>
+<polyline points="880,3880 913,3880 913,3791 935,3791" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3766" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3796" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.2.1: Acurácia no cálculo de comissão de vendedores</text>
+<text x="1745" y="3796" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,3880 913,3880 913,3851 935,3851" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3826" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3856" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.2.2: Receita média mensal de vendas avulsas (Sale)</text>
+<text x="1745" y="3856" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Crescimento 10%</text>
+<polyline points="880,3880 913,3880 913,3911 935,3911" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3886" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3916" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.2.3: Tempo de atualização dos KPIs por janela (7d/30d/ano)</text>
+<text x="1745" y="3916" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 250 ms</text>
+<polyline points="880,3880 913,3880 913,3971 935,3971" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="3946" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="3976" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.2.4: Participação das vendas avulsas no faturamento</text>
+<text x="1745" y="3976" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Monitorado</text>
+<polyline points="382,3880 415,3880 415,4130 440,4130" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="440" y="4014" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="454" y="4042" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q09.3</text>
+<text x="454" y="4074" font-family="Arial, sans-serif" font-size="15" fill="#000000">O Dashboard Executivo suporta</text>
+<text x="454" y="4098" font-family="Arial, sans-serif" font-size="15" fill="#000000">efetivamente a tomada de decisão?</text>
+<polyline points="880,4130 913,4130 913,4041 935,4041" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="4016" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="4046" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.3.1: Frequência semanal de acesso dos gestores</text>
+<text x="1745" y="4046" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 10</text>
+<polyline points="880,4130 913,4130 913,4101 935,4101" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="4076" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="4106" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.3.2: Metas financeiras monitoradas em tempo real</text>
+<text x="1745" y="4106" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="880,4130 913,4130 913,4161 935,4161" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="4136" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="4166" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.3.3: Tempo economizado na consolidação gerencial</text>
+<text x="1745" y="4166" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 16 h/mês</text>
+<polyline points="880,4130 913,4130 913,4221 935,4221" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="935" y="4196" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="945" y="4226" font-family="Arial, sans-serif" font-size="14" fill="#000000">M09.3.4: Índice de confiança nos indicadores executivos</text>
+<text x="1745" y="4226" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 4,5</text>
+<rect x="1840" y="3490" width="1720" height="780" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<rect x="1862" y="3720" width="300" height="320" fill="#D9E1F2" stroke="#000000" stroke-width="2"/>
+<text x="2012" y="3765" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">O10: Adoção dos Perfis</text>
+<text x="2012" y="3793" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Comerciais e</text>
+<text x="2012" y="3821" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Satisfação dos</text>
+<text x="2012" y="3849" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle">Clientes</text>
+<text x="2012" y="3877" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle"></text>
+<text x="2012" y="3905" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Ponto de vista: Gestor</text>
+<text x="2012" y="3933" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Comercial / Customer</text>
+<text x="2012" y="3961" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Success (CS)</text>
+<polyline points="2162,3880 2195,3880 2195,3630 2220,3630" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="3514" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="3542" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q10.1</text>
+<text x="2234" y="3574" font-family="Arial, sans-serif" font-size="15" fill="#000000">Como está a adoção e evolução entre os</text>
+<text x="2234" y="3598" font-family="Arial, sans-serif" font-size="15" fill="#000000">perfis Starter, Growth e VIP?</text>
+<polyline points="2660,3630 2693,3630 2693,3541 2715,3541" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3516" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3546" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.1.1: Distribuição de clientes por perfil LPS</text>
+<text x="3525" y="3546" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Growth+VIP ≥ 55%</text>
+<polyline points="2660,3630 2693,3630 2693,3601 2715,3601" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3576" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3606" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.1.2: Taxa de upgrade de plano no semestre</text>
+<text x="3525" y="3606" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 15%</text>
+<polyline points="2660,3630 2693,3630 2693,3661 2715,3661" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3636" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3666" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.1.3: Empresas Growth/VIP com CS e Vendedor atribuídos</text>
+<text x="3525" y="3666" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="2660,3630 2693,3630 2693,3721 2715,3721" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3696" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3726" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.1.4: ARPA (Receita Média por Empresa) por perfil LPS</text>
+<text x="3525" y="3726" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Crescimento 8%</text>
+<polyline points="2162,3880 2195,3880 2195,3880 2220,3880" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="3764" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="3792" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q10.2</text>
+<text x="2234" y="3824" font-family="Arial, sans-serif" font-size="15" fill="#000000">A exportação (CSV/JSON) e gestão de</text>
+<text x="2234" y="3848" font-family="Arial, sans-serif" font-size="15" fill="#000000">contratos atendem à operação?</text>
+<polyline points="2660,3880 2693,3880 2693,3791 2715,3791" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3766" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3796" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.2.1: Volume mensal de exportações via DataExportTemplate</text>
+<text x="3525" y="3796" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 30</text>
+<polyline points="2660,3880 2693,3880 2693,3851 2715,3851" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3826" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3856" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.2.2: Proporção de uso entre formatos CSV e JSON</text>
+<text x="3525" y="3856" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: Monitorado</text>
+<polyline points="2660,3880 2693,3880 2693,3911 2715,3911" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3886" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3916" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.2.3: Empresas ativas com contrato PDF anexado</text>
+<text x="3525" y="3916" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 95%</text>
+<polyline points="2660,3880 2693,3880 2693,3971 2715,3971" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="3946" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="3976" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.2.4: Taxa de sucesso sem erro de encoding/separador CSV</text>
+<text x="3525" y="3976" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: 100%</text>
+<polyline points="2162,3880 2195,3880 2195,4130 2220,4130" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="2220" y="4014" width="440" height="232" fill="#FFF2CC" stroke="#000000" stroke-width="1"/>
+<text x="2234" y="4042" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">Q10.3</text>
+<text x="2234" y="4074" font-family="Arial, sans-serif" font-size="15" fill="#000000">Qual o nível de satisfação e retenção</text>
+<text x="2234" y="4098" font-family="Arial, sans-serif" font-size="15" fill="#000000">das empresas atendidas?</text>
+<polyline points="2660,4130 2693,4130 2693,4041 2715,4041" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="4016" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="4046" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.3.1: Net Promoter Score (NPS) dos clientes e operadores</text>
+<text x="3525" y="4046" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ +60</text>
+<polyline points="2660,4130 2693,4130 2693,4101 2715,4101" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="4076" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="4106" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.3.2: CSAT (Satisfação) por módulo principal do sistema</text>
+<text x="3525" y="4106" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 88%</text>
+<polyline points="2660,4130 2693,4130 2693,4161 2715,4161" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="4136" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="4166" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.3.3: Taxa de retenção mensal de empresas no CRM</text>
+<text x="3525" y="4166" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≥ 96%</text>
+<polyline points="2660,4130 2693,4130 2693,4221 2715,4221" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="2715" y="4196" width="820" height="50" fill="#E2EFDA" stroke="#000000" stroke-width="1"/>
+<text x="2725" y="4226" font-family="Arial, sans-serif" font-size="14" fill="#000000">M10.3.4: Tempo médio de onboarding até a 1ª fatura</text>
+<text x="3525" y="4226" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000000" text-anchor="end">Meta: ≤ 2,0 d</text>
+</svg>
